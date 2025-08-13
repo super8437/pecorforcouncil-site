@@ -1,0 +1,3 @@
+http://*    https://:splat    301!
+https://www.pecorforcouncil.com/*   https://pecorforcouncil.com/:splat  301!
+https://pecorforcouncil.org/*       https://pecorforcouncil.com/:splat  301!
