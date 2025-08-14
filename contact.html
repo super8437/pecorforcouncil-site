@@ -5,13 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Contact • Pecor for Council</title>
 <meta name="description" content="Contact Sam Pecor — Biddeford City Council, Ward 7.">
-<link rel="canonical" href="https://www.pecorforcouncil.com/">
+    <!-- Use a page‑specific canonical URL instead of always pointing at the home page. -->
+    <link rel="canonical" href="https://www.pecorforcouncil.com/contact.html">
 <link rel="stylesheet" href="/css/styles.css">
 <link rel="icon" href="/assets/favicon.png" type="image/png">
 <meta property="og:title" content="Contact • Pecor for Council">
 <meta property="og:description" content="Contact Sam Pecor — Biddeford City Council, Ward 7.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://www.pecorforcouncil.com/">
+<meta property="og:url" content="https://www.pecorforcouncil.com/contact.html">
 <meta property="og:image" content="https://www.pecorforcouncil.com/assets/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Contact • Pecor for Council">
@@ -39,8 +40,10 @@
 <section>
   <h2>Contact</h2>
   <p>Email <a href="mailto:info@pecorforcouncil.com">info@pecorforcouncil.com</a> or use the form below.</p>
-  <form name="contact" method="POST" data-netlify="true">
+  <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
     <input type="hidden" name="form-name" value="contact">
+    <!-- Hidden honeypot field to reduce spam submissions -->
+    <input type="hidden" name="bot-field">
     <label>Name<input name="name" required></label>
     <label>Email<input type="email" name="email" required></label>
     <label>Message<textarea name="message" rows="6" required></textarea></label>

@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Open Porch • Pecor for Council</title>
 <meta name="description" content="Open Porch Hours — Wednesdays 4–6 pm at 81 May St. Share your thoughts or request a time.">
-<link rel="canonical" href="https://www.pecorforcouncil.com/">
+<link rel="canonical" href="https://www.pecorforcouncil.com/porch.html">
 <link rel="stylesheet" href="/css/styles.css">
 <link rel="icon" href="/assets/favicon.png" type="image/png">
 <meta property="og:title" content="Open Porch • Pecor for Council">
 <meta property="og:description" content="Open Porch Hours — Wednesdays 4–6 pm at 81 May St. Share your thoughts or request a time.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://www.pecorforcouncil.com/">
+<meta property="og:url" content="https://www.pecorforcouncil.com/porch.html">
 <meta property="og:image" content="https://www.pecorforcouncil.com/assets/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Open Porch • Pecor for Council">
@@ -40,8 +40,10 @@
   <h2>Open Porch</h2>
   <p><strong>When:</strong> Wednesdays, 4–6 pm · <strong>Where:</strong> 81 May St, Biddeford.</p>
   <p>Pull up a chair and tell me what’s working, what isn’t, and what you’d fix first. If you need accessibility accommodations, note them below and I’ll make it work.</p>
-  <form name="porch" method="POST" data-netlify="true">
+  <form name="porch" method="POST" data-netlify="true" netlify-honeypot="bot-field">
     <input type="hidden" name="form-name" value="porch">
+    <!-- Hidden honeypot field to reduce spam submissions -->
+    <input type="hidden" name="bot-field">
     <label>Your name<input name="name" required></label>
     <label>Email<input type="email" name="email" required></label>
     <label>Phone (optional)<input type="tel" name="phone"></label>
