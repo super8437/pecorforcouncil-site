@@ -1,2 +1,6 @@
+/porch       /porch.html       301
+/contact     /contact.html     301
+/priorities  /priorities.html  301
+/privacy     /privacy.html     301
 /.well-known/*   /:splat   200
 http://*         https://:splat   301!
