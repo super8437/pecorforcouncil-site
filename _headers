@@ -1,14 +1,8 @@
 /*
+  Basic-Auth: sam:06366B
+  X-Robots-Tag: noindex, nofollow, noarchive
+  Cache-Control: no-store
   Strict-Transport-Security: max-age=15552000; includeSubDomains
   Referrer-Policy: strict-origin-when-cross-origin
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
-
-  # Layer 1: tell crawlers not to index or follow anything
-  X-Robots-Tag: noindex, nofollow, noarchive
-  Cache-Control: no-store
-
-  # Layer 2: temporary password protection (Basic Auth)
-  # Replace the password with a strong temporary value.
-  # Anyone visiting will get a browser prompt.
-  Basic-Auth: sam:06366B
