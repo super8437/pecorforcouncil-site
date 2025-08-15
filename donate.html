@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>Donate — Sam Pecor</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Placeholder: integrate donation provider or ActBlue link later.">
+  <meta name="description" content="Contribute to support Sam’s campaign. Contributions are not tax-deductible; Maine law requires us to collect your name and address for gifts over $10 and your employer and occupation for gifts over $50. Max contribution: $600 per election.">
   <link rel="canonical" href="https://pecorforcouncil.com/donate.html">
   <!-- Open Graph and Twitter metadata -->
   <meta property="og:type" content="website">
@@ -44,18 +44,81 @@
           <li><a href="/support.html">Support</a></li>
           <li><a href="/contact.html">Contact</a></li>
           <li class="nav__cta">
-            <a href="/donate.html" class="btn btn--donate" aria-description="Placeholder — integrate donation flow later">Donate</a>
+            <a href="/donate.html" class="btn btn--donate">Donate</a>
           </li>
         </ul>
       </nav>
     </div>
   </header>
-  <main id="main" class="container">
-    <section>
-      <h1>Donate</h1>
-      <p><em>PLACEHOLDER: Integrate donation provider or ActBlue link later.</em></p>
-    </section>
+  <main id="main" class="container narrow">
+    <h1>Donate</h1>
+    <p class="small">
+      Contributions are not tax‑deductible. Maine law requires us to collect your name and address for contributions over $10 and your employer and occupation for contributors giving more than $50 in a reporting period. Maximum contribution is $600 per person per election.
+    </p>
+
+    <!-- Donation intake form: uses Netlify for collection. Swap action with your payment processor later. -->
+    <form name="donations" method="POST" action="/thanks.html"
+          data-netlify="true" netlify-honeypot="bot-field" class="form" id="donation-form">
+      <input type="hidden" name="form-name" value="donations">
+      <p class="hidden"><label>Don’t fill this out: <input name="bot-field"></label></p>
+
+      <!-- Amount input: enforce minimum 1 and maximum 600 -->
+      <label>Amount (USD) *
+        <input type="number" name="amount" id="amount" min="1" max="600" step="1" required inputmode="numeric">
+      </label>
+
+      <!-- Required identity info -->
+      <label>First Name * <input type="text" name="first_name" required></label>
+      <label>Last Name * <input type="text" name="last_name" required></label>
+      <label>Email * <input type="email" name="email" required></label>
+
+      <!-- Address: always collected to simplify reporting for >$10 donations -->
+      <fieldset>
+        <legend>Billing Address *</legend>
+        <label>Street Address * <input name="addr1" required></label>
+        <label>City * <input name="city" required></label>
+        <label>State * <input name="state" required maxlength="2"></label>
+        <label>ZIP * <input name="zip" required pattern="\\d{5}(-\\d{4})?"></label>
+      </fieldset>
+
+      <!-- Employer/Occupation: required when amount > $50; toggled via JS. -->
+      <div id="emp-occ-group">
+        <label>Employer <input name="employer" id="employer"></label>
+        <label>Occupation <input name="occupation" id="occupation"></label>
+        <p class="small">Required if your total contributions exceed $50 in the reporting period.</p>
+      </div>
+
+      <!-- Legal affirmations -->
+      <fieldset>
+        <legend>Legal affirmations *</legend>
+        <label><input type="checkbox" name="affirm_citizen" required> I am a U.S. citizen or lawful permanent resident.</label>
+        <label><input type="checkbox" name="affirm_ownfunds" required> This contribution is made from my own funds, in my own name.</label>
+      </fieldset>
+
+      <p class="small">
+        Maximum contribution is $600 per person per election. We cannot accept contributions from foreign nationals.
+      </p>
+
+      <button class="btn" type="submit">Continue</button>
+
+      <!-- Disclosure and authorization statements below the CTA -->
+      <p class="small mt-2">
+        By donating, you confirm the above and understand that your contribution will be publicly reported as required by law.
+      </p>
+      <p class="small footer-disclaimer">Paid for and authorized by Friends of Sam Pecor.</p>
+    </form>
+
+    <p class="small mt-4">Questions? <a href="/privacy.html">Privacy Policy</a></p>
   </main>
+  <footer class="footer">
+    <div class="container">
+      <!-- Required campaign disclaimer -->
+      <p class="small footer-disclaimer">Paid for and authorized by Friends of Sam Pecor.</p>
+      <div class="small">© 2025 Pecor for Council. Accessibility: need accommodations? Email <a href="mailto:info@pecorforcouncil.com">info@pecorforcouncil.com</a> or call <a href="tel:2072052680">207‑205‑2680</a>.</div>
+    </div>
+  </footer>
+  <!-- Include navigation script and donation helper -->
   <script src="/js/nav.js" defer></script>
+  <script src="/js/main.js" defer></script>
 </body>
 </html>

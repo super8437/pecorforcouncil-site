@@ -1,0 +1,10 @@
+{
+  "paid_for_by": "Paid for and authorized by Friends of Sam Pecor.",
+  "donation_notice": "Contributions are not tax-deductible. Maine law requires us to collect your name and address for contributions over $10 and your employer and occupation for contributors giving more than $50 in a reporting period. Maximum contribution is $600 per person per election.",
+  "donor_affirmations": [
+    "I am a U.S. citizen or lawful permanent resident.",
+    "This contribution is made from my own funds and is not being provided to me by another person or entity.",
+    "This contribution is made using my own name and personal payment method."
+  ],
+  "limit_amount": 600
+}

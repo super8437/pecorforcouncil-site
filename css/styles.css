@@ -182,6 +182,12 @@ section { padding: var(--space-10) 0; }
   padding: var(--space-6) var(--space-4);
 }
 
+/* Footer compliance disclaimer */
+.footer-disclaimer {
+  opacity: 0.9;
+  line-height: 1.4;
+}
+
 /* Hero area */
 .hero {
   position: relative;
