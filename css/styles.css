@@ -207,7 +207,7 @@ section { padding: var(--space-10) 0; }
 }
 .hero p {
   margin-top: var(--space-2);
-  color: var(--color-muted);
+  /* Let hero paragraphs inherit the color defined by the container (e.g., white in hero banners). */
 }
 
 /* Typography helpers */
@@ -292,6 +292,100 @@ nav a {
 @media (max-width: 800px) {
   .container { max-width: var(--container-narrow); }
   section { padding: var(--space-8) 0; }
+}
+
+/* Screen-reader only text (used elsewhere too) */
+.sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  white-space: nowrap;
+}
+
+/* HERO */
+.hero {
+  position: relative;
+  display: grid;
+  align-items: center;
+  min-height: clamp(420px, 70vh, 680px);
+  padding: clamp(2.5rem, 6vw, 6rem) 0;
+  color: #fff;
+  background: var(--color-primary);
+}
+
+.hero--image {
+  /* use a CSS var so we can swap inline without editing CSS */
+  background: center / cover no-repeat var(--hero-image, url('/assets/hero-placeholder.svg'));
+}
+
+.hero::after {
+  /* Overlay for contrast on top of either color or image */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--color-hero-overlay);
+}
+
+.hero > .container {
+  position: relative;
+  z-index: 1;
+  max-width: var(--container);
+}
+
+.hero__eyebrow {
+  font-size: var(--fs-xs);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: color-mix(in oklab, white, var(--color-surface) 25%);
+  margin-bottom: var(--space-2);
+}
+
+.hero__title {
+  font-size: var(--fs-xxl);
+  line-height: 1.1;
+  margin: 0 0 var(--space-3);
+  text-wrap: balance;
+}
+
+.hero__subtitle {
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  color: color-mix(in oklab, white, black 8%);
+  margin: 0 0 var(--space-6);
+  max-width: 60ch;
+}
+
+.hero__actions {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+.hero__actions .btn {
+  box-shadow: var(--shadow-sm);
+}
+.hero__actions .btn--ghost {
+  color: #fff;
+  border-color: #fff;
+}
+.hero__actions .btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Responsive tightening */
+@media (max-width: 720px) {
+  .hero {
+    text-align: left;
+  }
+  .hero__title {
+    font-size: clamp(1.8rem, 7vw, 2.4rem);
+  }
+  .hero__subtitle {
+    font-size: 1rem;
+  }
 }
 
 /* Skip link (a11y) */

@@ -8,6 +8,8 @@
 <link rel="canonical" href="https://www.pecorforcouncil.com/">
 <link rel="stylesheet" href="/css/styles.css?v=20250814122120">
 <link rel="icon" href="/assets/favicon.png" type="image/png">
+  <!-- Preload the hero background for faster Largest Contentful Paint -->
+  <link rel="preload" href="/assets/hero-placeholder.svg" as="image" fetchpriority="high">
 <meta property="og:title" content="Sam Pecor for Biddeford City Council • Ward 7">
 <meta property="og:description" content="Fix what’s broken. Grow smart. Own the results. A maintenance‑first plan, middle housing that fits, and real accountability.">
 <meta property="og:type" content="website">
@@ -64,14 +66,40 @@
       </nav>
     </div>
   </header>
-  <!-- Hero section with tagline -->
-  <section class="hero">
+  <main id="main">
+    <!-- HERO — placeholder background; swap later with real image -->
+    <section
+      class="hero hero--image"
+      style="--hero-image: url('/assets/hero-placeholder.svg');"
+      aria-label="Campaign introduction"
+    >
+      <div class="container">
+        <p class="hero__eyebrow">Biddeford City Council — Ward 7</p>
+
+        <!-- Use h1 here for primary entry page -->
+        <h1 class="hero__title">
+          Fix what’s broken. Grow smart. Own the results.
+        </h1>
+
+        <p class="hero__subtitle">
+          Biddeford’s working-class future — steady, practical, accountable.
+        </p>
+
+        <div class="hero__actions">
+          <a class="btn" href="/about.html">Learn More</a>
+          <a class="btn btn--ghost" href="/support.html">Join Us</a>
+          <!-- Optional: video CTA (commented by default)
+          <a class="btn btn--secondary" href="https://www.youtube.com/watch?v=XXXX" target="_blank" rel="noopener">
+            ▶︎ Play Video
+          </a>
+          -->
+        </div>
+
+        <!-- Developer note: replace hero background with a real photo later. -->
+      </div>
+    </section>
+
     <div class="container">
-      <h2>Fix what’s broken. Grow smart. Own the results.</h2>
-      <p>Biddeford’s working‑class future — steady, practical, accountable.</p>
-    </div>
-  </section>
-  <main id="main" class="container">
 
 <section class="grid">
   <div class="card">
@@ -105,9 +133,11 @@
   <h2>Share your thoughts</h2>
   <p>I’m building this agenda with you. What’s working? What isn’t? What would you fix first? Drop by the Open Porch or send a message via the contact form. I read every note.</p>
   <a class="btn" href="/contact.html">Send a message</a>
-</section>
+    </section>
 
-</main>
+    </div><!-- /.container -->
+
+  </main>
 <footer class="footer">
   <div class="container">
     <div>Paid for by Friends of Sam Pecor.</div>
