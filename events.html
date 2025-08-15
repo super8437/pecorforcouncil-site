@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Events — Sam Pecor</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Join Sam at upcoming events and weekly Open Porch listening sessions.">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <!-- Unified sticky header -->
+  <header class="header" role="banner">
+    <div class="container header__bar">
+      <a class="brand" href="/" aria-label="Home">
+        <img src="/assets/placeholder-logo.svg" alt="PLACEHOLDER campaign logo" class="brand__logo">
+        <span class="brand__text">Sam Pecor</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
+        <span class="sr-only">Menu</span>
+        ☰
+      </button>
+      <nav id="primary-nav" class="nav" aria-label="Primary" aria-hidden="true">
+        <ul class="nav__list">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/priorities.html">Priorities</a></li>
+          <li><a href="/porch.html">Open Porch</a></li>
+          <li><a href="/support.html">Support</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li class="nav__cta">
+            <a href="/donate.html" class="btn btn--donate" aria-description="Placeholder — integrate donation flow later">Donate</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section--alt">
+      <div class="container">
+        <h1>Events</h1>
+        <p class="events-intro">Come say hello — here’s what’s coming up.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="event-list" aria-label="Upcoming events">
+          <article class="event-card" itemscope itemtype="https://schema.org/Event">
+            <h3 itemprop="name">Open Porch — Weekly Listening Sessions</h3>
+            <div class="event-meta">
+              <span class="meta-item"><img src="/assets/icons/calendar.svg" alt=""><strong>Every week</strong></span>
+              <span class="meta-item"><img src="/assets/icons/clock.svg" alt=""><strong>Wednesdays, 4–6 pm</strong></span>
+              <span class="meta-item"><img src="/assets/icons/map-pin.svg" alt=""><strong>81 May St, Biddeford</strong></span>
+            </div>
+            <p class="small">Informal, neighbor-first, and focused on practical fixes.</p>
+            <p><a class="btn" href="/porch.html">RSVP or Share Your Thoughts</a></p>
+          </article>
+
+          <!-- Add future events here as more <article class="event-card"> blocks -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div>Paid for by Friends of Sam Pecor.</div>
+      <div class="small">© 2025 Pecor for Council. Accessibility: need accommodations? Email <a href="mailto:info@pecorforcouncil.com">info@pecorforcouncil.com</a> or call <a href="tel:2072052680">207‑205‑2680</a>.</div>
+    </div>
+  </footer>
+  <!-- Footer + nav.js -->
+  <script src="/js/nav.js" defer></script>
+</body>
+</html>

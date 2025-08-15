@@ -54,36 +54,103 @@
       </nav>
     </div>
   </header>
-  <!-- Hero section with tagline -->
-  <section class="hero">
-    <div class="container">
-      <h2>Fix what’s broken. Grow smart. Own the results.</h2>
-      <p>Biddeford’s working‑class future — steady, practical, accountable.</p>
-    </div>
-  </section>
-  <main id="main" class="container">
+  <!-- Open Porch banner -->
+  <main id="main">
+    <section class="op-banner" aria-label="Open Porch banner">
+      <div class="container">
+        <h1>Open Porch</h1>
+        <p class="small">Weekly listening sessions — come by, say hello, and share what you’re seeing on the ground.</p>
+      </div>
+    </section>
 
-<section>
-  <h2>Open Porch</h2>
-  <p><strong>When:</strong> Wednesdays, 4–6 pm · <strong>Where:</strong> 81 May St, Biddeford.</p>
-  <p>Pull up a chair and tell me what’s working, what isn’t, and what you’d fix first. If you need accessibility accommodations, note them below and I’ll make it work.</p>
-  <form action="/thanks.html" name="porch" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-    <input type="hidden" name="form-name" value="porch">
-    <!-- Hidden honeypot field to reduce spam submissions -->
-    <input type="hidden" name="bot-field">
-    <label>Your name<input name="name" required></label>
-    <label>Email<input type="email" name="email" required></label>
-    <label>Phone (optional)<input type="tel" name="phone"></label>
-    <label>What would you like to discuss?<textarea name="message" rows="5" required></textarea></label>
-    <label>Can you make Wednesdays 4–6 pm?<select name="availability" required>
-      <option value="">Select…</option>
-      <option>Yes</option><option>No—please propose a time</option>
-    </select></label>
-    <button class="btn" type="submit">Send</button>
-  </form>
-</section>
+    <!-- Details and RSVP form -->
+    <section>
+      <div class="container op-wrap">
+        <article>
+          <p class="kicker">What to expect</p>
+          <h2>Meet, listen, and solve locally</h2>
+          <p>
+            <em>KEEP EXISTING COPY:</em> Pull up a chair and tell me what’s working, what isn’t, and what you’d fix first. If you need accessibility accommodations, note them below and I’ll make it work.
+          </p>
 
-</main>
+          <div class="event-meta" itemscope itemtype="https://schema.org/Event">
+            <span class="meta-item"><img src="/assets/icons/calendar.svg" alt="">
+              <strong><span itemprop="eventSchedule">Every week</span></strong>
+            </span>
+            <span class="meta-item"><img src="/assets/icons/clock.svg" alt="">
+              <strong>Wednesdays, 4–6 pm</strong>
+            </span>
+            <span class="meta-item"><img src="/assets/icons/map-pin.svg" alt="">
+              <span itemprop="location" itemscope itemtype="https://schema.org/Place">
+                <strong><span itemprop="name">81 May St, Biddeford</span></strong>
+                <meta itemprop="address" content="81 May St, Biddeford, ME">
+              </span>
+            </span>
+          </div>
+
+          <ul class="small">
+            <li>Stop in any time during the listed hour.</li>
+            <li>Neighbors of all viewpoints welcome.</li>
+            <li>Not a town hall — it’s a listening porch.</li>
+          </ul>
+        </article>
+
+        <aside class="op-form">
+          <!-- RSVP form -->
+          <form class="form-grid" action="/thanks.html" name="porch" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="porch">
+            <p class="hp">
+              <label>Don’t fill this out if you’re human: <input name="bot-field"></label>
+            </p>
+
+            <div>
+              <label for="porch-name">Your name <span class="req" aria-hidden="true">*</span></label>
+              <input class="input" id="porch-name" name="name" type="text" required aria-required="true">
+            </div>
+            <div>
+              <label for="porch-email">Email <span class="req" aria-hidden="true">*</span></label>
+              <input class="input" id="porch-email" name="email" type="email" required aria-required="true">
+            </div>
+            <div>
+              <label for="porch-phone">Phone (optional)</label>
+              <input class="input" id="porch-phone" name="phone" type="tel">
+            </div>
+            <div class="full">
+              <label for="porch-message">What would you like to discuss?</label>
+              <textarea class="input" id="porch-message" name="message" rows="5" required aria-required="true"></textarea>
+            </div>
+            <div class="full">
+              <label for="porch-availability">Can you make Wednesdays 4–6 pm?</label>
+              <select class="input" id="porch-availability" name="availability" required aria-required="true">
+                <option value="">Select…</option>
+                <option>Yes</option>
+                <option>No—please propose a time</option>
+              </select>
+            </div>
+            <div class="form-actions full">
+              <button class="btn" type="submit">Send</button>
+            </div>
+          </form>
+        </aside>
+      </div>
+    </section>
+
+    <!-- JSON-LD for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "Open Porch — Weekly Listening Sessions",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "location": {
+        "@type": "Place",
+        "name": "81 May St, Biddeford",
+        "address": "81 May St, Biddeford, ME"
+      }
+    }
+    </script>
+  </main>
 <footer class="footer">
   <div class="container">
     <div>Paid for by Friends of Sam Pecor.</div>
