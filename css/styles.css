@@ -293,3 +293,149 @@ nav a {
   .container { max-width: var(--container-narrow); }
   section { padding: var(--space-8) 0; }
 }
+
+/* Skip link (a11y) */
+.skip-link {
+  position: absolute;
+  inset-inline-start: -9999px;
+  inset-block-start: auto;
+  width: 1px; height: 1px; overflow: hidden;
+}
+.skip-link:focus {
+  inset-inline-start: var(--space-4);
+  inset-block-start: var(--space-4);
+  width: auto; height: auto;
+  padding: var(--space-2) var(--space-3);
+  background: #fff; color: #000;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+  z-index: 1001;
+}
+
+/* Header layout */
+.header {
+  background: var(--color-header-bg);
+  color: var(--color-header-text);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.header.is-scrolled {
+  box-shadow: var(--shadow-md);
+}
+
+.header__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-block: var(--space-3);
+}
+
+/* Brand */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--color-header-text);
+  font-weight: 700;
+}
+.brand:hover,
+.brand:focus {
+  text-decoration: none;
+}
+.brand__logo {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+.brand__text {
+  font-size: 1.125rem;
+  letter-spacing: .2px;
+}
+
+/* Nav */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 0;
+  color: var(--color-header-text);
+  font-size: 1.25rem;
+  line-height: 1;
+}
+.nav { }
+.nav__list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav__list a {
+  color: var(--color-header-text);
+  font-weight: 600;
+  padding: .4rem .2rem;
+}
+.nav__list a:hover,
+.nav__list a:focus {
+  text-decoration: underline;
+}
+.nav__list a[aria-current="page"] {
+  text-decoration: underline;
+  text-underline-offset: .2em;
+  font-weight: 700;
+}
+
+/* Donate CTA */
+.nav__cta .btn--donate {
+  background: var(--color-accent);
+  color: #111;
+  border-color: transparent;
+}
+.nav__cta .btn--donate:hover,
+.nav__cta .btn--donate:focus {
+  background: color-mix(in oklab, var(--color-accent), black 12%);
+  color: #111;
+}
+
+/* Responsive nav */
+@media (max-width: 900px) {
+  .nav-toggle {
+    display: inline-block;
+  }
+
+  .header__bar {
+    position: relative;
+  }
+
+  .nav {
+    position: absolute;
+    inset: calc(100% + 2px) 0 auto 0;
+    background: var(--color-header-bg);
+    transform: translateY(-120%);
+    transition: transform .2s ease;
+    box-shadow: var(--shadow-md);
+  }
+  .nav.is-open {
+    transform: translateY(0);
+  }
+  .nav[aria-hidden="true"] {
+    transform: translateY(-120%);
+  }
+
+  .nav__list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding: var(--space-4);
+  }
+
+  .nav__cta {
+    align-self: stretch;
+  }
+  .nav__cta .btn--donate {
+    width: 100%;
+    text-align: center;
+  }
+}

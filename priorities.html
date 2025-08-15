@@ -24,22 +24,44 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<header class="header">
-  <div class="container brand">
-    <h1>Sam Pecor • City Council, Ward 7</h1>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/priorities.html">Priorities</a>
-      <a href="/porch.html">Open Porch</a>
-      <a href="/contact.html">Contact</a>
-    </nav>
-  </div>
-  <div class="container hero">
-    <h2>Fix what’s broken. Grow smart. Own the results.</h2>
-    <p>Biddeford’s working‑class future — steady, practical, accountable.</p>
-  </div>
-</header>
-<main class="container">
+  <!-- Accessible skip link for keyboard users -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <!-- Unified sticky header and navigation bar -->
+  <header class="header" role="banner">
+    <div class="container header__bar">
+      <a class="brand" href="/" aria-label="Home">
+        <img src="/assets/placeholder-logo.svg" alt="PLACEHOLDER campaign logo" class="brand__logo">
+        <span class="brand__text">Sam Pecor</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
+        <span class="sr-only">Menu</span>
+        ☰
+      </button>
+      <nav id="primary-nav" class="nav" aria-label="Primary" aria-hidden="true">
+        <ul class="nav__list">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/priorities.html">Priorities</a></li>
+          <li><a href="/porch.html">Open Porch</a></li>
+          <li><a href="/support.html">Support</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li class="nav__cta">
+            <a href="/donate.html" class="btn btn--donate" aria-description="Placeholder — integrate donation flow later">
+              Donate
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <!-- Hero section with tagline -->
+  <section class="hero">
+    <div class="container">
+      <h2>Fix what’s broken. Grow smart. Own the results.</h2>
+      <p>Biddeford’s working‑class future — steady, practical, accountable.</p>
+    </div>
+  </section>
+  <main id="main" class="container">
 
 <section id="p1">
   <div class="kicker">Priority #1</div>
@@ -68,5 +90,7 @@
     <div class="small">© 2025 Pecor for Council. Accessibility: need accommodations? Email <a href="mailto:info@pecorforcouncil.com">info@pecorforcouncil.com</a> or call <a href="tel:2072052680">207‑205‑2680</a>.</div>
   </div>
 </footer>
+  <!-- Navigation and header JS -->
+  <script src="/js/nav.js" defer></script>
 </body>
 </html>
