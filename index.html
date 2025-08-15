@@ -188,6 +188,68 @@
       </div>
     </section>
 
+    <!-- SUPPORT / GET INVOLVED -->
+    <section id="support" class="cta" aria-labelledby="support-title">
+      <div class="cta__header">
+        <h2 id="support-title" class="cta__title">Support Our Campaign</h2>
+        <p class="cta__intro">Join our campaign — sign up to volunteer or receive updates:</p>
+      </div>
+
+      <div class="container">
+        <form
+          class="form-grid"
+          action="/thanks.html"
+          method="POST"
+          name="support"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+        >
+          <!-- Netlify wiring -->
+          <input type="hidden" name="form-name" value="support">
+          <p class="hp">
+            <label>Don’t fill this out if you’re human: <input name="bot-field"></label>
+          </p>
+
+          <p class="form-note small full"> <span aria-hidden="true">*</span> indicates required </p>
+
+          <div>
+            <label for="first-name">First Name <span class="req" aria-hidden="true">*</span></label>
+            <input class="input" id="first-name" name="first-name" type="text" required placeholder="Jane" aria-required="true">
+          </div>
+
+          <div>
+            <label for="last-name">Last Name <span class="req" aria-hidden="true">*</span></label>
+            <input class="input" id="last-name" name="last-name" type="text" required placeholder="Doe" aria-required="true">
+          </div>
+
+          <div class="full">
+            <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
+            <input class="input" id="email" name="email" type="email" required placeholder="you@example.com" aria-required="true" inputmode="email" autocomplete="email">
+          </div>
+
+          <div class="full">
+            <label for="phone">Phone (optional)</label>
+            <input class="input" id="phone" name="phone" type="tel" placeholder="(207) 555-0123" inputmode="tel" autocomplete="tel">
+          </div>
+
+          <!-- Optional opt-ins — keep simple for now -->
+          <div class="full checkbox-row">
+            <input id="opt-volunteer" name="opt-volunteer" type="checkbox" value="yes">
+            <label for="opt-volunteer" style="margin:0;font-weight:400;">I’m interested in volunteering</label>
+          </div>
+          <div class="full checkbox-row">
+            <input id="opt-news" name="opt-news" type="checkbox" value="yes">
+            <label for="opt-news" style="margin:0;font-weight:400;">Email me campaign updates</label>
+          </div>
+
+          <div class="form-actions full">
+            <button class="btn" type="submit">Sign Up</button>
+            <a class="btn btn--ghost" href="/privacy.html">Privacy Policy</a>
+          </div>
+        </form>
+      </div>
+    </section>
+
 
   </main>
 <footer class="footer">
