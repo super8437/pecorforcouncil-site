@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>https://www.pecorforcouncil.com</loc><lastmod>2025-08-14</lastmod></url>
-<url><loc>https://www.pecorforcouncil.com/priorities.html</loc><lastmod>2025-08-14</lastmod></url>
-<url><loc>https://www.pecorforcouncil.com/porch.html</loc><lastmod>2025-08-14</lastmod></url>
-<url><loc>https://www.pecorforcouncil.com/contact.html</loc><lastmod>2025-08-14</lastmod></url>
-<url><loc>https://www.pecorforcouncil.com/privacy.html</loc><lastmod>2025-08-14</lastmod></url>
+  <url><loc>https://pecorforcouncil.com/</loc></url>
+  <url><loc>https://pecorforcouncil.com/about.html</loc></url>
+  <url><loc>https://pecorforcouncil.com/priorities.html</loc></url>
+  <url><loc>https://pecorforcouncil.com/porch.html</loc></url>
+  <url><loc>https://pecorforcouncil.com/support.html</loc></url>
+  <url><loc>https://pecorforcouncil.com/contact.html</loc></url>
+  <url><loc>https://pecorforcouncil.com/privacy.html</loc></url>
 </urlset>

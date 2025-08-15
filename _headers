@@ -3,3 +3,16 @@
   Referrer-Policy: strict-origin-when-cross-origin
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
+
+# Cache static assets aggressively and HTML sparingly
+/assets/*
+  Cache-Control: public, max-age=2592000, immutable
+
+/css/*
+  Cache-Control: public, max-age=604800
+
+/js/*
+  Cache-Control: public, max-age=604800
+
+/*.html
+  Cache-Control: no-cache
