@@ -61,28 +61,65 @@
       <p>Biddeford’s working‑class future — steady, practical, accountable.</p>
     </div>
   </section>
-  <main id="main" class="container">
+  <main id="main">
+    <!-- Intro section with heading, intro text, and optional table of contents -->
+    <section class="section--alt">
+      <div class="container">
+        <h1>Our Plan for Biddeford</h1>
+        <p class="priorities-page__intro">
+          These are Sam’s core priorities: practical maintenance, smart growth, and accountable results.
+          Each priority outlines goals and steps we can measure.
+        </p>
 
-<section id="p1">
-  <div class="kicker">Priority #1</div>
-  <h2>Fix what’s broken—first.</h2>
-  <p>Biddeford’s growth hasn’t been felt equally, and deferred infrastructure risks more tax hikes. Finish mandated sewer and street work <strong>wisely</strong>, stand up a <strong>maintenance line</strong> in the budget, and publish quarterly snapshots (scope, spend‑to‑date, next milestones).</p>
-  <blockquote><strong>Stop the bleeding:</strong> pause non‑essential projects; maintenance lockbox; public backlog dashboard.</blockquote>
-</section>
-<hr>
-<section id="p2" class="section--alt">
-  <div class="kicker">Priority #2</div>
-  <h2>Growth on our terms.</h2>
-  <p>Slow down the mega‑projects. Build the <strong>middle</strong> — 2–4 unit infill and small mixed‑use near downtown — so owner equity stays local. Apply <strong>clear standards</strong> and a <strong>measured pace</strong>: design fit, infrastructure capacity, and fair‑share contributions. Add anti‑displacement safeguards so no one is priced out.</p>
-</section>
-<hr>
-<section id="p3">
-  <div class="kicker">Priority #3</div>
-  <h2>Be accountable. Always.</h2>
-  <p>Say what we’ll do. Do it. <strong>Report back.</strong> Project scorecards for major work, plain‑English explanations before votes, and after‑action reviews when we miss. If we get it wrong, we own it and fix it.</p>
-</section>
+        <nav aria-label="Priorities overview">
+          <ul>
+            <li><a href="#p1">Priority #1 — Fix What’s Broken</a></li>
+            <li><a href="#p2">Priority #2 — Grow Smart</a></li>
+            <li><a href="#p3">Priority #3 — Own the Results</a></li>
+          </ul>
+        </nav>
+      </div>
+    </section>
 
-</main>
+    <!-- Accordion of priorities -->
+    <section class="prio-accordion">
+      <div class="container">
+        <details id="p1" open>
+          <summary>
+            <span class="caret">▶</span>
+            <span><span class="kicker">Priority #1</span> — <strong>Fix What’s Broken</strong></span>
+          </summary>
+          <div class="prio-content">
+            <p class="small">Subtitle (optional): Routine maintenance first, predictable costs, credible timelines.</p>
+            <p>Biddeford’s growth hasn’t been felt equally, and deferred infrastructure risks more tax hikes. Finish mandated sewer and street work <strong>wisely</strong>, stand up a <strong>maintenance line</strong> in the budget, and publish quarterly snapshots (scope, spend‑to‑date, next milestones).</p>
+            <blockquote><strong>Stop the bleeding:</strong> pause non‑essential projects; maintenance lockbox; public backlog dashboard.</blockquote>
+          </div>
+        </details>
+
+        <details id="p2">
+          <summary>
+            <span class="caret">▶</span>
+            <span><span class="kicker">Priority #2</span> — <strong>Grow Smart</strong></span>
+          </summary>
+          <div class="prio-content">
+            <p class="small">Subtitle (optional): Enable housing where it fits; align code to outcomes.</p>
+            <p>Slow down the mega‑projects. Build the <strong>middle</strong> — 2–4 unit infill and small mixed‑use near downtown — so owner equity stays local. Apply <strong>clear standards</strong> and a <strong>measured pace</strong>: design fit, infrastructure capacity, and fair‑share contributions. Add anti‑displacement safeguards so no one is priced out.</p>
+          </div>
+        </details>
+
+        <details id="p3">
+          <summary>
+            <span class="caret">▶</span>
+            <span><span class="kicker">Priority #3</span> — <strong>Own the Results</strong></span>
+          </summary>
+          <div class="prio-content">
+            <p class="small">Subtitle (optional): Transparency, measurable goals, public reporting.</p>
+            <p>Say what we’ll do. Do it. <strong>Report back.</strong> Project scorecards for major work, plain‑English explanations before votes, and after‑action reviews when we miss. If we get it wrong, we own it and fix it.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+  </main>
 <footer class="footer">
   <div class="container">
     <!-- Remove the treasurer placeholder; there is currently no treasurer. -->
@@ -92,5 +129,6 @@
 </footer>
   <!-- Navigation and header JS -->
   <script src="/js/nav.js" defer></script>
+  <script src="/js/priorities.js" defer></script>
 </body>
 </html>
