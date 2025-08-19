@@ -16,21 +16,24 @@
   <meta name="msapplication-TileColor" content="#184a45">
   <meta name="msapplication-config" content="/favicons/browserconfig.xml">
   <meta name="theme-color" content="#184a45">
-<!-- Open Graph and Twitter metadata -->
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Sam Pecor">
-    <meta property="og:title" content="Open Porch — Weekly Listening Sessions — Sam Pecor">
-    <meta property="og:description" content="Join Sam’s weekly Open Porch to share what’s working, flag what isn’t, and shape the plan together.">
-    <meta property="og:url" content="https://pecorforcouncil.com/porch.html">
-    <meta property="og:image" content="https://pecorforcouncil.com/assets/og-default.svg">
+  <!-- Open Graph and Twitter metadata -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Sam Pecor">
+  <meta property="og:title" content="Open Porch — Weekly Listening Sessions — Sam Pecor">
+  <meta property="og:description" content="Join Sam’s weekly Open Porch to share what’s working, flag what isn’t, and shape the plan together.">
+  <meta property="og:url" content="https://pecorforcouncil.com/porch.html">
+  <meta property="og:image" content="https://pecorforcouncil.com/assets/og-default.svg">
 
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Open Porch — Weekly Listening Sessions — Sam Pecor">
-    <meta name="twitter:description" content="Join Sam’s weekly Open Porch to share what’s working, flag what isn’t, and shape the plan together.">
-    <meta name="twitter:image" content="https://pecorforcouncil.com/assets/og-default.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Open Porch — Weekly Listening Sessions — Sam Pecor">
+  <meta name="twitter:description" content="Join Sam’s weekly Open Porch to share what’s working, flag what isn’t, and shape the plan together.">
+  <meta name="twitter:image" content="https://pecorforcouncil.com/assets/og-default.svg">
   <!-- Preconnect and load Inter font family for consistent typography -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Preload Open Porch hero for faster LCP -->
+  <link rel="preload" href="/assets/open-porch-banner-1600.jpg" as="image" fetchpriority="high">
 </head>
 <body>
   <!-- Accessible skip link for keyboard users -->
@@ -65,7 +68,15 @@
   </header>
   <!-- Open Porch banner -->
   <main id="main">
-    <section class="op-banner" aria-label="Open Porch banner">
+    <section
+      class="op-banner"
+      style="--op-banner: image-set(
+        url('/assets/open-porch-banner-1600.webp') type('image/webp') 1x,
+        url('/assets/open-porch-banner-2000.webp') type('image/webp') 2x,
+        url('/assets/open-porch-banner-1600.jpg')  type('image/jpeg') 1x,
+        url('/assets/open-porch-banner-2000.jpg')  type('image/jpeg') 2x
+      );"
+      aria-label="Open Porch banner">
       <div class="container">
         <h1>Open Porch</h1>
         <p class="small">Weekly listening sessions — come by, say hello, and share what you’re seeing on the ground.</p>
@@ -164,7 +175,7 @@
   <div class="container">
     <!-- Required campaign disclaimer -->
     <p class="small footer-disclaimer">Paid for and authorized by Friends of Sam Pecor.</p>
-    <div class="small">© 2025 Pecor for Council. Accessibility: need accommodations? Email <a href="mailto:info@pecorforcouncil.com">info@pecorforcouncil.com</a> or call <a href="tel:2072052680">207‑205‑2680</a>.</div>
+    <div class="small">© 2025 Pecor for Council. Accessibility: need accommodations? Email <a href="mailto:info@pecorforcouncil.com">info@pecorforcouncil.com</a> or call <a href="tel:2072052680">207-205-2680</a>.</div>
   </div>
 </footer>
   <!-- Navigation and header JS -->
