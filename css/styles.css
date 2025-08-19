@@ -238,15 +238,28 @@ section { padding: var(--space-10) 0; }
 /* =========================
    HERO (Video background)
    ========================= */
+/*
+ * Hero component
+ *
+ * The hero section anchors the home page. It stretches across the full width of
+ * the viewport and vertically fills a healthy portion of the screen on both
+ * desktop and mobile. A video (or image) background sits beneath a semi‑
+ * transparent overlay to ensure text remains legible.  The container that
+ * wraps the hero’s content is layered above the overlay.
+ */
 .hero {
   position: relative;
   display: grid;
   align-items: center;
-  min-height: clamp(420px, 70vh, 680px);
+  /* Grow taller on larger viewports to avoid cropping the call to action */
+  min-height: clamp(480px, 80vh, 800px);
+  /* Consistent vertical rhythm whether on desktop or mobile */
   padding: clamp(2.5rem, 6vw, 6rem) 0;
+  width: 100%;
   color: #fff;
-  background: var(--color-primary); /* fallback color behind video */
-  overflow: hidden; /* clip video */
+  /* Fallback colour behind video if video fails to load */
+  background: var(--color-primary);
+  overflow: hidden; /* clip the video layer */
 }
 
 /* Optional legacy support if a page still sets a static image:
