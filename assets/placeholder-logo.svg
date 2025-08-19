@@ -1,6 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160" role="img" aria-labelledby="title">
   <title>PLACEHOLDER — Campaign Logo</title>
-  <rect width="160" height="160" rx="24" fill="#184a45"/>
+  <!--
+    Updated campaign logo without a hard background rectangle. The outer circle uses
+    the secondary palette colour so the logo feels integrated into the header
+    bar. The monogram remains for continuity. Remove or replace this file if a
+    true logo SVG is provided in future.
+  -->
   <circle cx="80" cy="80" r="58" fill="#3a5a40" />
   <text x="50%" y="54%" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="52" font-weight="700" fill="#e8efea">SP</text>
 </svg>
