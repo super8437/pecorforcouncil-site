@@ -5,7 +5,8 @@
   /* Brand Palette (from user spec) */
   --color-primary: #184a45;   /* dark green (primary) */
   --color-secondary: #3a5a40; /* lighter green (secondary) */
-  --color-tertiary: #334e68;  /* navy (tertiary) */
+  /* Updated tertiary color to align with requested palette */
+  --color-tertiary: #3a5a40;
   --color-accent: #c9a227;    /* yellow/gold (accent/pop) */
   --color-surface: #e8efea;   /* light green (surface / white space) */
 
@@ -21,12 +22,14 @@
   --color-brand-cta-hover: #11342f;
 
   /* Surfaces/sections */
-  --color-header-bg: var(--color-tertiary);
+  /* Use primary colour for header/footer backgrounds for better contrast */
+  --color-header-bg: var(--color-primary);
   --color-header-text: #ffffff;
-  --color-footer-bg: var(--color-tertiary);
+  --color-footer-bg: var(--color-primary);
   --color-footer-text: #ffffff;
   --color-card-bg: #ffffff;
-  --color-hero-overlay: rgba(0,0,0,0.35);
+  /* Increase the hero overlay opacity for better legibility */
+  --color-hero-overlay: rgba(0,0,0,0.5);
 
   /* Borders/lines/shadows */
   --color-border: #d1d5db;
@@ -186,6 +189,8 @@ section { padding: var(--space-10) 0; }
 .footer-disclaimer {
   opacity: 0.9;
   line-height: 1.4;
+  /* Lighten the disclaimer text for better contrast on dark backgrounds */
+  color: var(--color-surface);
 }
 
 /* Hero area */
@@ -381,6 +386,19 @@ nav a {
   background: rgba(255, 255, 255, 0.12);
 }
 
+/* Custom hero CTA button colours (non‑ghost) */
+.hero__actions .btn:not(.btn--ghost) {
+  background: #334e68;
+  color: var(--color-accent);
+  border-color: #334e68;
+}
+.hero__actions .btn:not(.btn--ghost):hover,
+.hero__actions .btn:not(.btn--ghost):focus {
+  /* Slightly darken on hover for feedback */
+  background: #293f54;
+  color: var(--color-accent);
+}
+
 /* Responsive tightening */
 @media (max-width: 720px) {
   .hero {
@@ -407,6 +425,9 @@ nav a {
 /* Card enhancements */
 .card {
   position: relative;
+  /* Allow card contents to stretch so CTA can align to bottom */
+  display: flex;
+  flex-direction: column;
   transition: transform .06s ease, box-shadow .2s ease;
 }
 .card:hover {
@@ -428,6 +449,11 @@ nav a {
 }
 .card__cta a {
   font-weight: 600;
+}
+
+/* Ensure the card CTA container pushes to the bottom of the card */
+.card__cta {
+  margin-top: auto;
 }
 
 /* Priorities page */
@@ -535,7 +561,14 @@ label .req {
 .checkbox-row {
   display: flex;
   align-items: center;
-  gap: .6rem;
+  /* Reduce the gap between checkbox and label and add margin below to tighten spacing */
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+
+/* Tweak checkbox alignment inside rows */
+.checkbox-row input {
+  margin-top: 0.15rem;
 }
 
 .form-actions {
