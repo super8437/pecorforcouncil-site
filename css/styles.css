@@ -356,7 +356,7 @@ section { padding: var(--space-10) 0; }
 .hero__actions .btn--ghost:hover { background: rgba(255, 255, 255, 0.12); }
 /* Custom hero CTA colors (non-ghost) */
 .hero__actions .btn:not(.btn--ghost) {
-  background: #334e68; color: var(--color-accent); border-color: #334e68;
+  background: #184a45; color: var(--color-accent); border-color: #184a45;
 }
 .hero__actions .btn:not(.btn--ghost):hover,
 .hero__actions .btn:not(.btn--ghost):focus {
