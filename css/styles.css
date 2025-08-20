@@ -354,7 +354,20 @@ section { padding: var(--space-10) 0; }
 .hero__actions .btn { box-shadow: var(--shadow-sm); }
 .hero__actions .btn--ghost { color: #fff; border-color: #fff; }
 .hero__actions .btn--ghost:hover { background: rgba(255, 255, 255, 0.12); }
-/* Custom hero CTA colors (non-ghost) */
+
+/* Make the FIRST hero button (Learn More) match the ghost style */
+.hero__actions .btn:first-child {
+  background: transparent !important;
+  color: #fff !important;
+  border-color: #fff !important;
+}
+.hero__actions .btn:first-child:hover,
+.hero__actions .btn:first-child:focus {
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: #fff !important;
+}
+
+/* Custom hero CTA colors (kept for any non-ghost buttons) */
 .hero__actions .btn:not(.btn--ghost) {
   background: #184a45; color: var(--color-accent); border-color: #184a45;
 }
@@ -375,17 +388,6 @@ section { padding: var(--space-10) 0; }
   .hero__subtitle { font-size: 1rem; }
 }
 
-/* =========================
-   Typography helpers
-   ========================= */
-.kicker {
-  text-transform: uppercase;
-  letter-spacing: .06em;
-  font-size: var(--fs-xs);
-  color: var(--color-muted);
-  font-weight: 700;
-  margin-bottom: var(--space-1);
-}
 
 
 /* =========================
