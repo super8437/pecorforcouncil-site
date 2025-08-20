@@ -21,9 +21,9 @@
   --color-brand-cta-hover: #11342f;
 
   /* Surfaces/sections */
-  --color-header-bg: var(--color-primary);
+  --color-header-bg: var(--color-tertiary);
   --color-header-text: #ffffff;
-  --color-footer-bg: var(--color-primary);
+  --color-footer-bg: var(--color-tertiary);
   --color-footer-text: #ffffff;
   --color-card-bg: #ffffff;
   --color-hero-overlay: rgba(0,0,0,0.5); /* higher opacity for legibility */
