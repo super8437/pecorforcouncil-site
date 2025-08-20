@@ -37,7 +37,7 @@
 
   /* ---------- Header backplate sizing + scroll state ---------- */
   const setHeaderHeight = () => {
-    // IMPORTANT: set custom property on :root so siblings (hero) can read it
+    // Set on :root so any sibling (e.g., hero) can read it.
     root.style.setProperty('--header-h', header.offsetHeight + 'px');
   };
   const queueHeaderHeightSync = () => {
