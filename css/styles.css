@@ -634,12 +634,16 @@ nav a { margin-left: var(--space-4); font-weight: 600; }
   border-top: 4px solid var(--color-accent);
   padding: var(--space-10) 0;
 }
-/* Container for CTA headers; when nested in .cta this wrapper constrains width like the main container */
+/* Container-aligned CTA header (matches the form grid’s left edge) */
 .cta__header {
-  max-width: var(--container);
-  margin: 0 auto var(--space-6);
-  padding: 0 var(--space-4);
+  /* don’t create a second width context; just use the parent .container */
+  max-width: none;
+  /* no centering margin — keep it aligned with form fields */
+  margin: 0 0 var(--space-6);
+  /* remove the extra inner padding that caused the indent */
+  padding: 0;
 }
+
 .cta__title {
   margin: 0 0 var(--space-2);
 }
