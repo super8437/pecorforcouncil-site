@@ -2,6 +2,7 @@
   const toggle = document.querySelector('.nav-toggle');
   const nav = document.getElementById('primary-nav');
   const header = document.querySelector('.header');
+  const root = document.documentElement;
   if (!toggle || !nav || !header) return;
 
   /* ---------- Mobile nav open/close ---------- */
@@ -36,11 +37,18 @@
 
   /* ---------- Header backplate sizing + scroll state ---------- */
   const setHeaderHeight = () => {
-    header.style.setProperty('--header-h', header.offsetHeight + 'px');
+    // IMPORTANT: set custom property on :root so siblings (hero) can read it
+    root.style.setProperty('--header-h', header.offsetHeight + 'px');
   };
   const queueHeaderHeightSync = () => {
     requestAnimationFrame(() => requestAnimationFrame(setHeaderHeight));
   };
+
+  // Keep in sync if the header reflows (font swap, nav open, breakpoint, etc.)
+  if ('ResizeObserver' in window) {
+    const ro = new ResizeObserver(setHeaderHeight);
+    ro.observe(header);
+  }
 
   // Hysteresis so we don't flap right at the top
   const THRESH_ON = 12, THRESH_OFF = 6;
