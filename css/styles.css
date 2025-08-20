@@ -436,7 +436,7 @@ label .req { color: var(--color-accent); font-weight: 700; margin-left: .25rem; 
 .input { width: 100%; padding: .7rem .8rem; border: 1px solid var(--color-border); border-radius: var(--radius-sm); font: inherit; background: #fff; }
 .input::placeholder { color: #9aa2af; }
 
-.form-note.small { color: var(--color-footer-tex); margin-bottom: var(--space-4); }
+.form-note.small { color: var(--color-footer-text); margin-bottom: var(--space-4); }
 
 .checkbox-row {
   display: flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-2);
