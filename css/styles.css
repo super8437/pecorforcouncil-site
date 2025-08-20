@@ -161,51 +161,67 @@ section { padding: var(--space-10) 0; }
 .btn--ghost { background: transparent; color: var(--color-brand-cta); border-color: var(--color-brand-cta); }
 
 /* =========================
-   Header — stable translucent on scroll (video-safe)
+   Header — stable no-flash version
    ========================= */
 
-/* Header content */
+/* Tune this once; this is the color that *looks like* ~72% of #334e68 over white.
+   If you want more/less "translucent", nudge toward white. */
+:root {
+  /* base brand */
+  --color-header-bg: var(--color-tertiary); /* #334e68 */
+  /* simulated translucent-on-white */
+  --color-header-bg-onwhite: #6C8092; /* ≈ rgba(51,78,104,0.72) over white */
+}
+
+/* Header content (no bg changes on the element itself) */
 .header {
   position: sticky;
   top: 0;
-  z-index: 1000;                 /* header stacking context */
+  z-index: 1000;
   color: var(--color-header-text);
 }
 .header a { color: var(--color-header-text); }
 
-/* Lift ALL direct children above the plate */
-.header > * {
-  position: relative;
-  z-index: 1;                    /* content above ::before plate */
-}
+/* Ensure all header children sit above the plate */
+.header > * { position: relative; z-index: 1; }
 
-/* Layout for your bar */
+/* Layout */
 .header__bar {
   display: flex; align-items: center; justify-content: space-between;
   gap: var(--space-4); padding-block: var(--space-3);
 }
 
-/* Fixed backplate behind the header content */
+/* Fixed backplate underneath header content, above the page */
 .header::before {
   content: "";
   position: fixed;
   top: 0; left: 0; right: 0;
-  height: var(--header-h, 64px);   /* JS sets this precisely */
+  height: var(--header-h, 64px);             /* JS keeps this in sync */
   pointer-events: none;
-
-  /* sits UNDER the header children, but above the page */
   z-index: 0;
 
-  /* solid brand at top; we only animate opacity */
+  /* Solid brand at top (reads over the hero video) */
   background-color: var(--color-header-bg);
-  opacity: 1;
-  transition: opacity .18s ease, height .18s ease;
-  will-change: opacity, height;
+
+  /* Animate only background-color & height — no opacity/blur => no flashing */
+  transition: background-color .18s ease, height .18s ease;
+  will-change: background-color, height;
 }
 
-/* Translucent on scroll (adjust 0.72 to taste) + shadow */
-.header.is-scrolled::before { opacity: 0.72; }
+/* After scroll: use the simulated translucent color (opaque) */
+.header.is-scrolled::before {
+  background-color: var(--color-header-bg-onwhite);
+}
+
+/* Optional: add shadow when scrolled */
 .header.is-scrolled { box-shadow: var(--shadow-md); }
+
+/* Progressive enhancement: if you want to derive the "onwhite" color from the var:
+   (Keep the hex above as a fallback for older browsers)
+.header.is-scrolled::before {
+  background-color: color-mix(in srgb, var(--color-header-bg) 72%, white);
+}
+*/
 
 
 .brand { display: inline-flex; align-items: center; gap: var(--space-3); color: var(--color-header-text); font-weight: 700; }
