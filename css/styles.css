@@ -70,6 +70,7 @@
   --brand: var(--color-primary);
   --muted: var(--color-surface);
   --link: var(--color-primary);
+  --hero-pad: clamp(2.5rem, 6vw, 6rem); /* top/bottom padding used by .hero */
 }
 
 /* =========================
@@ -161,19 +162,18 @@ section { padding: var(--space-10) 0; }
 .btn--ghost { background: transparent; color: var(--color-brand-cta); border-color: var(--color-brand-cta); }
 
 /* =========================
-   Header — true translucent + hero cap
+   Header — true translucent
    ========================= */
-
 .header {
   position: sticky;
   top: 0;
-  z-index: 1000;
-  background-color: rgba(51, 78, 104, 0.72); /* always translucent */
+  z-index: 10; /* above hero overlays */
+  background-color: rgba(51, 78, 104, 0.72); /* #334e68 @ ~72% */
   color: var(--color-header-text);
 }
 .header a { color: var(--color-header-text); }
 
-/* Ensure header children sit above overlays */
+/* Keep header children above everything behind it */
 .header > * { position: relative; z-index: 2; }
 
 .header__bar {
@@ -181,36 +181,8 @@ section { padding: var(--space-10) 0; }
   gap: var(--space-4); padding-block: var(--space-3);
 }
 
-/* Optional: add shadow when leaving the hero */
+/* Optional: shadow class you can toggle if you want separation past the hero */
 .header.has-shadow { box-shadow: var(--shadow-md); }
-
-/* =========================
-   Hero cap overlay
-   ========================= */
-.hero {
-  position: relative;
-}
-
-.hero::before {
-  content: "";
-  position: sticky;
-  top: 0;
-  display: block;
-  width: 100%;
-  height: var(--header-h, 64px);      /* match header height */
-  margin-bottom: calc(var(--header-h, 64px) * -1); /* prevent layout push */
-  background-color: var(--color-header-bg);        /* solid brand */
-  z-index: 1;                        /* sits under header, above video */
-  pointer-events: none;
-}
-
-/* Keep video at the bottom, overlay after, then cap, then header */
-.hero__video { z-index: 0; }
-.hero::after { z-index: 1; } /* existing dark overlay */
-.hero::before { z-index: 2; } /* cap */
-.header { z-index: 3; }       /* header itself */
-
-
 
 .brand { display: inline-flex; align-items: center; gap: var(--space-3); color: var(--color-header-text); font-weight: 700; }
 .brand:hover, .brand:focus { text-decoration: none; }
@@ -382,6 +354,33 @@ section { padding: var(--space-10) 0; }
   .hero__title { font-size: clamp(1.8rem, 7vw, 2.4rem); }
   .hero__subtitle { font-size: 1rem; }
 }
+
+/* --- Hero cap: solid brand under the translucent header (all breakpoints) --- */
+
+/* Layer order reference:
+   video (z:0) -> hero::after overlay (z:1) -> hero::before cap (z:2) -> header (z:10) */
+.hero__video { z-index: 0; }
+.hero::after { z-index: 1; }
+
+/* Sticky cap lives inside the hero but is lifted to sit flush under the header */
+.hero::before {
+  content: "";
+  position: sticky;
+  top: 0;
+  display: block;
+
+  /* match the header height (fallback if JS doesn’t set it) */
+  height: var(--header-h, 64px);
+  margin-bottom: calc(-1 * var(--header-h, 64px)); /* neutralize layout */
+
+  /* lift by the hero’s top padding so the cap hugs the header edge */
+  transform: translateY(calc(-1 * var(--hero-pad)));
+
+  background-color: var(--color-header-bg); /* solid brand */
+  pointer-events: none;
+  z-index: 2; /* above hero overlay, below the header */
+}
+
 
 /* =========================
    Typography helpers
