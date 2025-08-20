@@ -61,7 +61,8 @@
   <header class="header" role="banner">
     <div class="container header__bar">
       <a class="brand" href="/" aria-label="Home">
-        <img src="/assets/placeholder-logo.svg" alt="Campaign logo" class="brand__logo">
+        <!-- Use the campaign favicon as the brand mark instead of the placeholder SP badge -->
+        <img src="/favicons/favicon-32x32.png" alt="Campaign logo" class="brand__logo">
         <span class="brand__text">Sam Pecor</span>
       </a>
       <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
@@ -226,12 +227,11 @@
 
     <!-- SUPPORT / GET INVOLVED -->
     <section id="support" class="cta" aria-labelledby="support-title">
-      <div class="cta__header">
-        <h2 id="support-title" class="cta__title">Support Our Campaign</h2>
-        <p class="cta__intro">Join our campaign — sign up to volunteer or receive updates:</p>
-      </div>
-
       <div class="container">
+        <div class="cta__header">
+          <h2 id="support-title" class="cta__title">Support Our Campaign</h2>
+          <p class="cta__intro">Join our campaign — sign up to volunteer or receive updates:</p>
+        </div>
         <form
           class="form-grid"
           action="/thanks.html"
@@ -271,11 +271,11 @@
           <!-- Optional opt-ins -->
           <div class="full checkbox-row">
             <input id="opt-volunteer" name="opt-volunteer" type="checkbox" value="yes">
-            <label for="opt-volunteer" style="margin:0;font-weight:400;">I’m interested in volunteering</label>
+            <label for="opt-volunteer">I’m interested in volunteering</label>
           </div>
           <div class="full checkbox-row">
             <input id="opt-news" name="opt-news" type="checkbox" value="yes">
-            <label for="opt-news" style="margin:0;font-weight:400;">Email me campaign updates</label>
+            <label for="opt-news">Email me campaign updates</label>
           </div>
 
           <div class="form-actions full">
