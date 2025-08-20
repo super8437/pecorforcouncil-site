@@ -164,51 +164,48 @@ section { padding: var(--space-10) 0; }
    Header — stable translucent on scroll (video-safe)
    ========================= */
 
-/* 1) Header content layer (never changes bg) */
+/* Header content */
 .header {
   position: sticky;
   top: 0;
-  z-index: 1000;                  /* above the plate */
+  z-index: 1000;                 /* header stacking context */
   color: var(--color-header-text);
 }
 .header a { color: var(--color-header-text); }
 
+/* Lift ALL direct children above the plate */
+.header > * {
+  position: relative;
+  z-index: 1;                    /* content above ::before plate */
+}
+
+/* Layout for your bar */
 .header__bar {
   display: flex; align-items: center; justify-content: space-between;
   gap: var(--space-4); padding-block: var(--space-3);
-  position: relative; z-index: 1; /* content above the plate */
 }
 
-/* 2) Fixed backplate lives UNDER the header content, but over the page */
+/* Fixed backplate behind the header content */
 .header::before {
   content: "";
   position: fixed;
-  inset: 0 auto auto 0;           /* top:0; left:0 */
-  width: 100%;
-  height: var(--header-h, 64px);  /* JS sets exact height */
-  z-index: 999;                    /* just under the header */
+  top: 0; left: 0; right: 0;
+  height: var(--header-h, 64px);   /* JS sets this precisely */
   pointer-events: none;
 
-  /* brand color — fully opaque at top */
-  background-color: var(--color-header-bg);
+  /* sits UNDER the header children, but above the page */
+  z-index: 0;
 
-  /* we only animate opacity (cheap) */
+  /* solid brand at top; we only animate opacity */
+  background-color: var(--color-header-bg);
   opacity: 1;
   transition: opacity .18s ease, height .18s ease;
   will-change: opacity, height;
 }
 
-/* 3) When scrolled: same color, just translucent */
-.header.is-scrolled::before {
-  /* pick your transparency: 0.6–0.8 usually feels right */
-  opacity: 0.72;
-}
-
-/* Optional: shadow when scrolled */
+/* Translucent on scroll (adjust 0.72 to taste) + shadow */
+.header.is-scrolled::before { opacity: 0.72; }
 .header.is-scrolled { box-shadow: var(--shadow-md); }
-
-
-
 
 
 .brand { display: inline-flex; align-items: center; gap: var(--space-3); color: var(--color-header-text); font-weight: 700; }
