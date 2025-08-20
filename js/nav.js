@@ -9,11 +9,13 @@
     nav.classList.remove('is-open');
     toggle.setAttribute('aria-expanded', 'false');
     nav.setAttribute('aria-hidden', 'true');
+    queueHeaderHeightSync();
   };
   const open = () => {
     nav.classList.add('is-open');
     toggle.setAttribute('aria-expanded', 'true');
     nav.removeAttribute('aria-hidden');
+    queueHeaderHeightSync();
   };
 
   toggle.addEventListener('click', () => {
@@ -33,14 +35,18 @@
   });
 
   /* ---------- Header translucency on scroll (video-safe) ---------- */
-  // Keep CSS var in sync with actual header height (for the fixed backplate)
   const setHeaderHeight = () => {
     header.style.setProperty('--header-h', header.offsetHeight + 'px');
   };
 
-  // Hysteresis so we don't flicker right at the top
-  const THRESH_ON = 12;  // add .is-scrolled above this
-  const THRESH_OFF = 6;  // remove it when back below this
+  // If height changes due to fonts/menu/layout, queue a double-RAF to measure after paint
+  const queueHeaderHeightSync = () => {
+    requestAnimationFrame(() => requestAnimationFrame(setHeaderHeight));
+  };
+
+  // Hysteresis so we don't flicker at the top
+  const THRESH_ON = 12;   // add .is-scrolled above this
+  const THRESH_OFF = 6;   // remove it when back below this
   let scrolled = false;
   let ticking = false;
 
@@ -65,11 +71,18 @@
     }
   };
 
-  // Init
-  setHeaderHeight();
+  /* ---------- Init ---------- */
+  queueHeaderHeightSync();
   applyScrollState(window.scrollY || 0);
 
-  // Listeners
-  window.addEventListener('resize', setHeaderHeight, { passive: true });
+  /* ---------- Listeners ---------- */
+  window.addEventListener('load', queueHeaderHeightSync, { passive: true });
+  window.addEventListener('resize', queueHeaderHeightSync, { passive: true });
+  window.addEventListener('orientationchange', queueHeaderHeightSync, { passive: true });
   window.addEventListener('scroll', onScroll, { passive: true });
+
+  // If your site swaps fonts after load (FOIT/FOUT), this helps keep height accurate
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(queueHeaderHeightSync).catch(() => {});
+  }
 })();
