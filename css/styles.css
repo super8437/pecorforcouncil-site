@@ -164,7 +164,7 @@ section { padding: var(--space-10) 0; }
    Header / Footer
    ========================= */
 .header {
-  background: var(--color-header-bg);
+  background: rgba(0, 0, 0, 0.8); /* instead of var(--color-header-bg) */
   color: var(--color-header-text);
   position: sticky;
   top: 0;
