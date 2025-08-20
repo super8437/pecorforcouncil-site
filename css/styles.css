@@ -636,19 +636,9 @@ nav a { margin-left: var(--space-4); font-weight: 600; }
 @media (max-width: 900px) {
   .op-wrap { grid-template-columns: 1fr; }
 }
-/* Footer color hardening — place LAST in the CSS */
-footer.footer {
-  --color-footer-text: #ffffff; /* ensure valid */
-  color: var(--color-footer-text) !important;
-}
-footer.footer a,
-footer.footer a:visited,
-footer.footer a:hover,
-footer.footer a:focus {
-  color: inherit !important;
-}
+/* place this at the very end of the last-loaded CSS file (or last @layer) */
+footer.footer { color: var(--color-footer-text); }      /* base text → white */
 footer.footer .small,
-footer.footer .footer-disclaimer {
-  color: inherit !important;
-}
+footer.footer .footer-disclaimer { color: inherit; }    /* inherit white */
+footer.footer a { color: inherit; }                     /* links white too */
 
