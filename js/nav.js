@@ -34,29 +34,23 @@
     }
   });
 
-  /* ---------- Header translucency on scroll (video-safe) ---------- */
+  /* ---------- Header backplate sizing + scroll state ---------- */
   const setHeaderHeight = () => {
     header.style.setProperty('--header-h', header.offsetHeight + 'px');
   };
-
-  // If height changes due to fonts/menu/layout, queue a double-RAF to measure after paint
   const queueHeaderHeightSync = () => {
     requestAnimationFrame(() => requestAnimationFrame(setHeaderHeight));
   };
 
-  // Hysteresis so we don't flicker at the top
-  const THRESH_ON = 12;   // add .is-scrolled above this
-  const THRESH_OFF = 6;   // remove it when back below this
-  let scrolled = false;
-  let ticking = false;
+  // Hysteresis so we don't flap right at the top
+  const THRESH_ON = 12, THRESH_OFF = 6;
+  let scrolled = false, ticking = false;
 
   const applyScrollState = (y) => {
     if (!scrolled && y > THRESH_ON) {
-      scrolled = true;
-      header.classList.add('is-scrolled');
+      scrolled = true; header.classList.add('is-scrolled');
     } else if (scrolled && y < THRESH_OFF) {
-      scrolled = false;
-      header.classList.remove('is-scrolled');
+      scrolled = false; header.classList.remove('is-scrolled');
     }
   };
 
@@ -64,24 +58,21 @@
     const y = window.scrollY || window.pageYOffset || 0;
     if (!ticking) {
       ticking = true;
-      requestAnimationFrame(() => {
-        applyScrollState(y);
-        ticking = false;
-      });
+      requestAnimationFrame(() => { applyScrollState(y); ticking = false; });
     }
   };
 
-  /* ---------- Init ---------- */
+  // Init
   queueHeaderHeightSync();
   applyScrollState(window.scrollY || 0);
 
-  /* ---------- Listeners ---------- */
+  // Listeners
   window.addEventListener('load', queueHeaderHeightSync, { passive: true });
   window.addEventListener('resize', queueHeaderHeightSync, { passive: true });
   window.addEventListener('orientationchange', queueHeaderHeightSync, { passive: true });
   window.addEventListener('scroll', onScroll, { passive: true });
 
-  // If your site swaps fonts after load (FOIT/FOUT), this helps keep height accurate
+  // If fonts swap after load, keep height accurate
   if (document.fonts && document.fonts.ready) {
     document.fonts.ready.then(queueHeaderHeightSync).catch(() => {});
   }
