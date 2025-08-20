@@ -358,7 +358,12 @@ section { padding: var(--space-10) 0; }
   font-weight: 700;
   margin-bottom: var(--space-1);
 }
-.small { font-size: var(--fs-xs); color: var(--color-muted); }
+/* Utility should not force color */
+.small { font-size: var(--fs-xs); color: inherit; }
+
+/* When you actually want muted text elsewhere, use a separate class */
+.muted { color: var(--color-muted); }
+
 
 /* =========================
    Forms
