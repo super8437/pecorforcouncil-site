@@ -419,16 +419,27 @@ label .req { color: var(--color-accent); font-weight: 700; margin-left: .25rem; 
 
 .form-note.small { color: var(--color-footer-text); margin-bottom: var(--space-4); }
 
+/* Checkboxes: consistent left + vertical alignment */
 .checkbox-row {
-  display: flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-2);
+  display: grid;                     /* more predictable than flex here */
+  grid-template-columns: 1.25rem 1fr;/* fixed column for the box, text fills */
+  align-items: center;               /* center the box to the first line of text */
+  column-gap: var(--space-2);
+  row-gap: 0;
+  margin-bottom: var(--space-2);
 }
-.checkbox-row input { margin-top: 0.15rem; }
 
-/* Within a checkbox row, display the accompanying label inline so it sits next to the checkbox rather than below */
+.checkbox-row input[type="checkbox"] {
+  width: 1.1rem;
+  height: 1.1rem;
+  margin: 0;                         /* remove the old top nudge */
+  accent-color: var(--color-primary);/* optional: brand color tick */
+}
+
 .checkbox-row label {
-  display: inline-block;
   margin: 0;
   font-weight: 400;
+  line-height: 1.4;                  /* nicer multi-line wrapping */
 }
 
 .form-actions { display: flex; gap: var(--space-3); margin-top: var(--space-4); }
