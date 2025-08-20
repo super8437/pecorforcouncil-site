@@ -161,67 +161,55 @@ section { padding: var(--space-10) 0; }
 .btn--ghost { background: transparent; color: var(--color-brand-cta); border-color: var(--color-brand-cta); }
 
 /* =========================
-   Header — stable no-flash version
+   Header — true translucent + hero cap
    ========================= */
 
-/* Tune this once; this is the color that *looks like* ~72% of #334e68 over white.
-   If you want more/less "translucent", nudge toward white. */
-:root {
-  /* base brand */
-  --color-header-bg: var(--color-tertiary); /* #334e68 */
-  /* simulated translucent-on-white */
-  --color-header-bg-onwhite: #6C8092; /* ≈ rgba(51,78,104,0.72) over white */
-}
-
-/* Header content (no bg changes on the element itself) */
 .header {
   position: sticky;
   top: 0;
   z-index: 1000;
+  background-color: rgba(51, 78, 104, 0.72); /* always translucent */
   color: var(--color-header-text);
 }
 .header a { color: var(--color-header-text); }
 
-/* Ensure all header children sit above the plate */
-.header > * { position: relative; z-index: 1; }
+/* Ensure header children sit above overlays */
+.header > * { position: relative; z-index: 2; }
 
-/* Layout */
 .header__bar {
   display: flex; align-items: center; justify-content: space-between;
   gap: var(--space-4); padding-block: var(--space-3);
 }
 
-/* Fixed backplate underneath header content, above the page */
-.header::before {
+/* Optional: add shadow when leaving the hero */
+.header.has-shadow { box-shadow: var(--shadow-md); }
+
+/* =========================
+   Hero cap overlay
+   ========================= */
+.hero {
+  position: relative;
+}
+
+.hero::before {
   content: "";
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  height: var(--header-h, 64px);             /* JS keeps this in sync */
+  position: sticky;
+  top: 0;
+  display: block;
+  width: 100%;
+  height: var(--header-h, 64px);      /* match header height */
+  margin-bottom: calc(var(--header-h, 64px) * -1); /* prevent layout push */
+  background-color: var(--color-header-bg);        /* solid brand */
+  z-index: 1;                        /* sits under header, above video */
   pointer-events: none;
-  z-index: 0;
-
-  /* Solid brand at top (reads over the hero video) */
-  background-color: var(--color-header-bg);
-
-  /* Animate only background-color & height — no opacity/blur => no flashing */
-  transition: background-color .18s ease, height .18s ease;
-  will-change: background-color, height;
 }
 
-/* After scroll: use the simulated translucent color (opaque) */
-.header.is-scrolled::before {
-  background-color: var(--color-header-bg-onwhite);
-}
+/* Keep video at the bottom, overlay after, then cap, then header */
+.hero__video { z-index: 0; }
+.hero::after { z-index: 1; } /* existing dark overlay */
+.hero::before { z-index: 2; } /* cap */
+.header { z-index: 3; }       /* header itself */
 
-/* Optional: add shadow when scrolled */
-.header.is-scrolled { box-shadow: var(--shadow-md); }
-
-/* Progressive enhancement: if you want to derive the "onwhite" color from the var:
-   (Keep the hex above as a fallback for older browsers)
-.header.is-scrolled::before {
-  background-color: color-mix(in srgb, var(--color-header-bg) 72%, white);
-}
-*/
 
 
 .brand { display: inline-flex; align-items: center; gap: var(--space-3); color: var(--color-header-text); font-weight: 700; }
