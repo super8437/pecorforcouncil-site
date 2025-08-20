@@ -161,10 +161,10 @@ section { padding: var(--space-10) 0; }
 .btn--ghost { background: transparent; color: var(--color-brand-cta); border-color: var(--color-brand-cta); }
 
 /* =========================
-   Header / Footer
+   Header / Footer (overlay approach)
    ========================= */
 
-/* Default at top: solid so it reads well over the hero */
+/* Base header: solid so it reads over the hero */
 .header {
   position: sticky;
   top: 0;
@@ -172,24 +172,43 @@ section { padding: var(--space-10) 0; }
 
   background: var(--color-header-bg);
   color: var(--color-header-text);
-
-  /* smoothen the transition when the class toggles */
-  transition: background .2s ease, backdrop-filter .2s ease, box-shadow .2s ease;
+  backface-visibility: hidden;          /* helps Safari/GPU edges */
 }
 
 .header a { color: var(--color-header-text); }
 
-/* After scrolling: translucent + blur over page content */
-.header.is-scrolled {
-  /* #334e68 at ~50% opacity */
-  background: rgba(51, 78, 104, 0.5);
-  backdrop-filter: saturate(160%) blur(8px); /* optional */
-  box-shadow: var(--shadow-md);
-}
+/* Header layout */
 .header__bar {
   display: flex; align-items: center; justify-content: space-between;
   gap: var(--space-4); padding-block: var(--space-3);
 }
+
+/* --- Overlay that we fade in after scroll --- */
+.header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  /* tint and blur live on the overlay only */
+  background: rgba(51, 78, 104, 0.5);   /* #334e68 @ 50% */
+  -webkit-backdrop-filter: saturate(160%) blur(8px);
+  backdrop-filter: saturate(160%) blur(8px);
+
+  opacity: 0;                           /* hidden at top */
+  transition: opacity .2s ease;         /* animate only opacity (cheap) */
+}
+
+/* After scrolling: just reveal the overlay */
+.header.is-scrolled::before {
+  opacity: 1;
+}
+
+/* Optional: add a shadow when scrolled */
+.header.is-scrolled {
+  box-shadow: var(--shadow-md);
+}
+
 
 .brand { display: inline-flex; align-items: center; gap: var(--space-3); color: var(--color-header-text); font-weight: 700; }
 .brand:hover, .brand:focus { text-decoration: none; }
