@@ -161,7 +161,7 @@ section { padding: var(--space-10) 0; }
 .btn--ghost { background: transparent; color: var(--color-brand-cta); border-color: var(--color-brand-cta); }
 
 /* =========================
-   Header / Footer (translucent-on-scroll, no flicker)
+   Header / Footer — translucent on scroll (no flicker)
    ========================= */
 
 /* Solid at top so it reads over the hero */
@@ -170,12 +170,13 @@ section { padding: var(--space-10) 0; }
   top: 0;
   z-index: 1000;
 
-  background: var(--color-header-bg);
+  background-color: var(--color-header-bg);
   color: var(--color-header-text);
-  backface-visibility: hidden; /* helps Safari compositing */
 
-  /* only animate cheap props; overlay handles opacity */
-  transition: box-shadow .2s ease;
+  /* animate only cheap props */
+  transition: background-color .2s ease, box-shadow .2s ease;
+  will-change: background-color;
+  backface-visibility: hidden; /* helps Safari compositing */
 }
 
 /* Keep header text/icons white */
@@ -185,41 +186,19 @@ section { padding: var(--space-10) 0; }
 .header__bar {
   display: flex; align-items: center; justify-content: space-between;
   gap: var(--space-4); padding-block: var(--space-3);
-
-  /* ensure content stays above the overlay */
-  position: relative;
-  z-index: 1;
 }
 
-/* --- Overlay lives UNDER the content --- */
-.header { position: sticky; }               /* (already set) also establishes positioning context */
-.header::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;                               /* below the content */
-
-  /* same hue as your header, but translucent */
-  /* Use either of these — pick ONE: */
-  background: rgba(51, 78, 104, 0.5);       /* #334e68 @ 50% */
-  /* background: color-mix(in oklab, var(--color-header-bg) 50%, transparent); */
-
-  -webkit-backdrop-filter: saturate(160%) blur(8px);
-  backdrop-filter: saturate(160%) blur(8px);
-
-  opacity: 0;                               /* hidden at top */
-  transition: opacity .2s ease;
-}
-
-/* After scrolling: make the base transparent and reveal the overlay */
+/* After scrolling: same hue, just translucent */
 .header.is-scrolled {
-  background: transparent;
+  /* Fallback for all browsers: rgba of #334e68 */
+  background-color: rgba(51, 78, 104, 0.72);
+
+  /* Progressive enhancement: derive from your variable if supported */
+  background-color: color-mix(in srgb, var(--color-header-bg) 72%, transparent);
+
   box-shadow: var(--shadow-md);
 }
-.header.is-scrolled::before {
-  opacity: 1;
-}
+
 
 
 
