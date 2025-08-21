@@ -147,7 +147,7 @@ section { padding: var(--space-10) 0; }
    ========================= */
 .btn {
   display: inline-block;
-  padding: .7rem 1.1rem;
+  padding: 1rem 1.1rem;
   border-radius: var(--radius-md);
   background: var(--color-brand-cta);
   color: #fff;
