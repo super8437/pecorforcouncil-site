@@ -29,36 +29,9 @@
   <meta name="twitter:image" content="https://pecorforcouncil.com/assets/og-default.svg">
   <link rel="stylesheet" href="/css/styles.css">
 </head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <!-- Unified sticky header and navigation bar -->
-  <header class="header" role="banner">
-    <div class="container header__bar">
-      <a class="brand" href="/" aria-label="Home">
-        <!-- Use the campaign favicon as the brand mark instead of the placeholder SP badge -->
-        <img src="/favicons/favicon-32x32.png" alt="Campaign logo" class="brand__logo">
-        <span class="brand__text">Sam Pecor</span>
-      </a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
-        <span class="sr-only">Menu</span>
-        <span aria-hidden="true">☰</span>
-      </button>
-      <nav id="primary-nav" class="nav" aria-label="Primary" aria-hidden="true">
-        <ul class="nav__list">
-          <li><a href="/">Home</a></li>
-          <li><a href="/about.html">About</a></li>
-          <li><a href="/priorities.html">Priorities</a></li>
-          <li><a href="/porch.html">Open Porch</a></li>
-          <li><a href="/support.html">Support</a></li>
-          <li><a href="/contact.html">Contact</a></li>
-          <li class="nav__cta">
-            <a href="/donate.html" class="btn btn--donate">Donate</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-  <main id="main" class="container narrow">
+  <body>
+    <!--#include virtual="/partials/header.html" -->
+    <main id="main" class="container narrow">
     <h1>Donate</h1>
     <p class="small">
       Contributions are not tax‑deductible. Maine law requires us to collect your name and address for contributions over $10 and your employer and occupation for contributors giving more than $50 in a reporting period. Maximum contribution is $600 per person per election.
@@ -120,19 +93,11 @@
     </form>
 
     <p class="small mt-4">Questions? <a href="/privacy.html">Privacy Policy</a></p>
-  </main>
-  <footer class="footer">
-    <div class="container">
-      <!-- Required campaign disclaimer -->
-      <p class="small footer-disclaimer">Paid for and authorized by Sam Pecor.</p>
-      <div class="small">© 2025 Pecor for Council. Accessibility: need accommodations? Email <a href="mailto:info@pecorforcouncil.com">info@pecorforcouncil.com</a> or call <a href="tel:2072052680">207‑205‑2680</a>.</div>
-    </div>
-  </footer>
-  <!-- Include navigation script and donation helper -->
-  <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
-  <script src="/js/nav.js" defer></script>
-  <script src="/js/donationHelper.js" defer></script>
-  <script src="/js/main.js" defer></script>
-  <script src="/js/captcha.js" defer></script>
-</body>
-</html>
+    </main>
+    <!--#include virtual="/partials/footer.html" -->
+    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+    <script src="/js/donationHelper.js" defer></script>
+    <script src="/js/main.js" defer></script>
+    <script src="/js/captcha.js" defer></script>
+  </body>
+  </html>
