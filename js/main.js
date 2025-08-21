@@ -2,8 +2,8 @@
 
 // Donation intake form helper
 // This script enforces Maine campaign finance rules on the client.
-// It caps the donation amount at the statutory limit, and toggles
-// employer/occupation requirements when the gift exceeds $50.
+// It clamps donations to the $1–$600 range and toggles
+// employer/occupation fields when the gift exceeds $50.
 document.addEventListener('DOMContentLoaded', () => {
   const amt = document.querySelector('#amount');
   const emp = document.querySelector('#employer');
