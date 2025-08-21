@@ -41,11 +41,9 @@
   --fs-xl: clamp(1.75rem, 3vw, 2.25rem);
   --fs-lg: clamp(1.25rem, 2vw, 1.5rem);
   --fs-md: 1rem;
-  --fs-sm: 0.9375rem;
   --fs-xs: 0.85rem;
 
   /* Spacing & radii */
-  --space-0: 0;
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
@@ -54,7 +52,6 @@
   --space-6: 1.5rem;
   --space-8: 2rem;
   --space-10: 2.5rem;
-  --space-12: 3rem;
 
   --radius-sm: .375rem;
   --radius-md: .5rem;
@@ -65,13 +62,6 @@
   --container-narrow: 720px;
   --container: 1100px;
 
-  /* Back-compat aliases */
-  --ink: var(--color-tertiary);
-  --ink2: var(--color-secondary);
-  --paper: var(--color-surface);
-  --brand: var(--color-primary);
-  --muted: var(--color-surface);
-  --link: var(--color-primary);
   --hero-pad: clamp(2.5rem, 6vw, 6rem); /* top/bottom padding used by .hero */
 }
 
