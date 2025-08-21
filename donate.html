@@ -87,8 +87,8 @@
         <legend>Billing Address *</legend>
         <label>Street Address * <input name="addr1" required autocomplete="address-line1"></label>
         <label>City * <input name="city" required autocomplete="address-level2"></label>
-        <label>State * <input name="state" required maxlength="2" autocomplete="address-level1"></label>
-        <label>ZIP * <input name="zip" required pattern="[0-9]{5}" autocomplete="postal-code"></label>
+        <label>State * <input name="state" required maxlength="2" pattern="[A-Za-z]{2}" title="Two-letter state code" autocomplete="address-level1"></label>
+        <label>ZIP * <input name="zip" required pattern="\d{5}(-\d{4})?" autocomplete="postal-code"></label>
       </fieldset>
 
       <!-- Employer/Occupation: required when amount > $50; toggled via JS. -->
