@@ -87,8 +87,8 @@
         <legend>Billing Address *</legend>
         <label>Street Address * <input name="addr1" required></label>
         <label>City * <input name="city" required></label>
-        <label>State * <input name="state" required maxlength="2"></label>
-        <label>ZIP * <input name="zip" required pattern="[0-9]{5}"></label>
+        <label>State * <input name="state" required maxlength="2" pattern="[A-Za-z]{2}" title="Two-letter state code"></label>
+        <label>ZIP * <input name="zip" required pattern="\d{5}(-\d{4})?"></label>
       </fieldset>
 
       <!-- Employer/Occupation: required when amount > $50; toggled via JS. -->
