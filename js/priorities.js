@@ -2,7 +2,12 @@
   // When navigating via hash links, open the corresponding <details>
   const hashOpen = () => {
     if (!location.hash) return;
-    const el = document.querySelector(location.hash);
+
+    const hash = location.hash.slice(1);
+    const allowed = /^[a-z0-9\-_]+$/i;
+    if (!allowed.test(hash)) return;
+
+    const el = document.querySelector(`#${hash}`);
     if (el && el.nodeName.toLowerCase() === 'details') {
       el.open = true;
     }
