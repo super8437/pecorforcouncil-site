@@ -76,13 +76,16 @@
 <section>
 <h1>Contact</h1>
   <p>Email <a href="mailto:info@pecorforcouncil.com">info@pecorforcouncil.com</a> or use the form below.</p>
-  <form action="/.netlify/functions/contact" name="contact" method="POST">
+  <form action="/.netlify/functions/contact" name="contact" method="POST" data-progressive-security>
     <input type="hidden" name="form-name" value="contact">
     <!-- Hidden honeypot field to reduce spam submissions -->
     <input type="hidden" name="bot-field">
     <label>Name<input name="name" required></label>
     <label>Email<input type="email" name="email" required></label>
     <label>Message<textarea name="message" rows="6" required></textarea></label>
+    <div class="captcha-container" style="display:none">
+      <div class="h-captcha" data-sitekey="10000000-ffff-ffff-ffff-000000000001"></div>
+    </div>
     <button class="btn" type="submit">Send</button>
   </form>
 </section>
@@ -96,6 +99,8 @@
   </div>
 </footer>
   <!-- Navigation and header JS -->
+  <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
   <script src="/js/nav.js" defer></script>
+  <script src="/js/captcha.js" defer></script>
 </body>
 </html>
