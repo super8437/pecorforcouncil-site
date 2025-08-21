@@ -1,0 +1,17 @@
+{
+  "name": "pecorforcouncil-site",
+  "version": "1.0.0",
+  "description": "Council Campaign Website",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "jest": "^30.0.5",
+    "jsdom": "^26.1.0"
+  }
+}
