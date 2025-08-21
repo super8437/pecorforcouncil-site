@@ -21,14 +21,7 @@ describe('shared partials', () => {
     test(`${file} renders shared header and footer`, () => {
       const filePath = path.join(root, file);
       const raw = fs.readFileSync(filePath, 'utf8');
-      expect(raw).toContain('<!--#include virtual="/partials/header.html" -->');
-      expect(raw).toContain('<!--#include virtual="/partials/footer.html" -->');
-
-      const rendered = raw
-        .replace('<!--#include virtual="/partials/header.html" -->', headerPartial)
-        .replace('<!--#include virtual="/partials/footer.html" -->', footerPartial);
-
-      const dom = new JSDOM(rendered);
+      const dom = new JSDOM(raw);
       const header = dom.window.document.querySelector('header').outerHTML;
       const skip = dom.window.document.querySelector('.skip-link').outerHTML;
       const footer = dom.window.document.querySelector('footer').outerHTML;
