@@ -34,7 +34,7 @@
   --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
 
   /* Typography scale */
-  --font-sans: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-sans: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
   --fs-xxl: clamp(2.2rem, 4vw, 3rem);   /* hero headings */
   --fs-xl: clamp(1.75rem, 3vw, 2.25rem);
   --fs-lg: clamp(1.25rem, 2vw, 1.5rem);
