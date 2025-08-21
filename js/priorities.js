@@ -6,8 +6,9 @@
     if (el && el.nodeName.toLowerCase() === 'details') {
       el.open = true;
     }
-    // Adjust scroll to account for sticky header (approximately 80px)
-    requestAnimationFrame(() => window.scrollBy(0, -80));
+    // Adjust scroll to account for sticky header using computed height
+    const headerH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 80;
+    requestAnimationFrame(() => window.scrollBy(0, -headerH));
   };
   window.addEventListener('hashchange', hashOpen);
   // Run on initial page load in case a hash is present
