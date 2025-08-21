@@ -157,7 +157,11 @@ section { padding: var(--space-10) 0; }
   box-shadow: var(--shadow-sm);
   text-decoration: none;
 }
-.btn:hover, .btn:focus { background: var(--color-brand-cta-hover); text-decoration: none; }
+.btn:hover, .btn:focus {
+  background: var(--color-brand-cta-hover);
+  color: #fff;
+  text-decoration: none;
+}
 .btn:active { transform: translateY(1px); }
 .btn--secondary { background: var(--color-secondary); }
 .btn--ghost { background: transparent; color: var(--color-brand-cta); border-color: var(--color-brand-cta); }
