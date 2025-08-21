@@ -631,7 +631,10 @@ nav a { margin-left: var(--space-4); font-weight: 600; }
 .op-banner {
   position: relative;
   color: #fff;
-  background: center/cover no-repeat var(--op-banner, url('/assets/open-porch-placeholder.svg'));
+  background-image: var(--op-banner, url('/assets/open-porch-placeholder.svg'));
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   padding: clamp(2.5rem, 6vw, 6rem) 0;
 }
 .op-banner::after {
