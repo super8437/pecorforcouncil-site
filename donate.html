@@ -71,38 +71,53 @@
           data-netlify="true" netlify-honeypot="bot-field" class="form" id="donation-form">
       <input type="hidden" name="form-name" value="donations">
       <p class="hp"><label>Don’t fill this out: <input name="bot-field"></label></p>
+      <p class="form-note small"><span aria-hidden="true">*</span> indicates required</p>
 
       <!-- Amount input: enforce minimum 1 and maximum 600 -->
-      <label>Amount (USD) *
-        <input type="number" name="amount" id="amount" min="1" max="600" step="1" required inputmode="numeric">
-      </label>
+      <label for="amount">Amount (USD) <span class="req" aria-hidden="true">*</span></label>
+      <input type="number" name="amount" id="amount" min="1" max="600" step="1" required inputmode="numeric" aria-required="true">
 
       <!-- Required identity info -->
-      <label>First Name * <input type="text" name="first_name" required></label>
-      <label>Last Name * <input type="text" name="last_name" required></label>
-      <label>Email * <input type="email" name="email" required></label>
+      <label for="first-name-d">First Name <span class="req" aria-hidden="true">*</span></label>
+      <input type="text" name="first_name" id="first-name-d" required aria-required="true">
+      <label for="last-name-d">Last Name <span class="req" aria-hidden="true">*</span></label>
+      <input type="text" name="last_name" id="last-name-d" required aria-required="true">
+      <label for="email-d">Email <span class="req" aria-hidden="true">*</span></label>
+      <input type="email" name="email" id="email-d" required aria-required="true" inputmode="email" autocomplete="email">
 
       <!-- Address: always collected to simplify reporting for >$10 donations -->
       <fieldset>
-        <legend>Billing Address *</legend>
-        <label>Street Address * <input name="addr1" required></label>
-        <label>City * <input name="city" required></label>
-        <label>State * <input name="state" required maxlength="2"></label>
-        <label>ZIP * <input name="zip" required pattern="[0-9]{5}"></label>
+        <legend>Billing Address <span class="req" aria-hidden="true">*</span></legend>
+        <label for="addr1">Street Address <span class="req" aria-hidden="true">*</span></label>
+        <input name="addr1" id="addr1" required aria-required="true">
+        <label for="city">City <span class="req" aria-hidden="true">*</span></label>
+        <input name="city" id="city" required aria-required="true">
+        <label for="state">State <span class="req" aria-hidden="true">*</span></label>
+        <input name="state" id="state" required maxlength="2" aria-required="true">
+        <label for="zip">ZIP <span class="req" aria-hidden="true">*</span></label>
+        <input name="zip" id="zip" required pattern="[0-9]{5}" aria-required="true">
       </fieldset>
 
       <!-- Employer/Occupation: required when amount > $50; toggled via JS. -->
       <div id="emp-occ-group">
-        <label>Employer <input name="employer" id="employer"></label>
-        <label>Occupation <input name="occupation" id="occupation"></label>
+        <label for="employer">Employer</label>
+        <input name="employer" id="employer">
+        <label for="occupation">Occupation</label>
+        <input name="occupation" id="occupation">
         <p class="small">Required if your total contributions exceed $50 in the reporting period.</p>
       </div>
 
       <!-- Legal affirmations -->
       <fieldset>
-        <legend>Legal affirmations *</legend>
-        <label><input type="checkbox" name="affirm_citizen" required> I am a U.S. citizen or lawful permanent resident.</label>
-        <label><input type="checkbox" name="affirm_ownfunds" required> This contribution is made from my own funds, in my own name.</label>
+        <legend>Legal affirmations <span class="req" aria-hidden="true">*</span></legend>
+        <div class="checkbox-row">
+          <input type="checkbox" id="affirm_citizen" name="affirm_citizen" required aria-required="true">
+          <label for="affirm_citizen">I am a U.S. citizen or lawful permanent resident.</label>
+        </div>
+        <div class="checkbox-row">
+          <input type="checkbox" id="affirm_ownfunds" name="affirm_ownfunds" required aria-required="true">
+          <label for="affirm_ownfunds">This contribution is made from my own funds, in my own name.</label>
+        </div>
       </fieldset>
 
       <p class="small">

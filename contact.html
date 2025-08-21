@@ -80,9 +80,13 @@
     <input type="hidden" name="form-name" value="contact">
     <!-- Hidden honeypot field to reduce spam submissions -->
     <input type="hidden" name="bot-field">
-    <label>Name<input name="name" required></label>
-    <label>Email<input type="email" name="email" required></label>
-    <label>Message<textarea name="message" rows="6" required></textarea></label>
+    <p class="form-note small"><span aria-hidden="true">*</span> indicates required</p>
+    <label for="contact-name">Name <span class="req" aria-hidden="true">*</span></label>
+    <input id="contact-name" name="name" type="text" required aria-required="true">
+    <label for="contact-email">Email <span class="req" aria-hidden="true">*</span></label>
+    <input id="contact-email" type="email" name="email" required aria-required="true" inputmode="email" autocomplete="email">
+    <label for="contact-message">Message <span class="req" aria-hidden="true">*</span></label>
+    <textarea id="contact-message" name="message" rows="6" required aria-required="true"></textarea>
     <button class="btn" type="submit">Send</button>
   </form>
 </section>
