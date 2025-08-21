@@ -68,7 +68,7 @@
 
     <!-- Donation intake form handled by a Netlify Function -->
     <form name="donations" method="POST" action="/.netlify/functions/donate"
-          class="form" id="donation-form">
+          class="form" id="donation-form" data-progressive-security>
       <input type="hidden" name="form-name" value="donations">
       <p class="hp" aria-hidden="true" tabindex="-1"><label>Don’t fill this out: <input name="bot-field"></label></p>
 
@@ -109,6 +109,9 @@
         Maximum contribution is $600 per person per election. We cannot accept contributions from foreign nationals.
       </p>
 
+      <div class="captcha-container" style="display:none">
+        <div class="h-captcha" data-sitekey="10000000-ffff-ffff-ffff-000000000001"></div>
+      </div>
       <button class="btn" type="submit">Continue</button>
 
       <!-- Disclosure and authorization statements below the CTA -->
@@ -128,8 +131,10 @@
     </div>
   </footer>
   <!-- Include navigation script and donation helper -->
+  <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
   <script src="/js/nav.js" defer></script>
   <script src="/js/donationHelper.js" defer></script>
   <script src="/js/main.js" defer></script>
+  <script src="/js/captcha.js" defer></script>
 </body>
 </html>
