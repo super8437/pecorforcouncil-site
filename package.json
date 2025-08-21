@@ -4,7 +4,8 @@
   "description": "Council Campaign Website",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "node scripts/update-css-version.js"
   },
   "keywords": [],
   "author": "",
