@@ -80,8 +80,8 @@
     <input type="hidden" name="form-name" value="contact">
     <!-- Hidden honeypot field to reduce spam submissions -->
     <input type="hidden" name="bot-field">
-    <label>Name<input name="name" required></label>
-    <label>Email<input type="email" name="email" required></label>
+    <label>Name<input name="name" required autocomplete="name"></label>
+    <label>Email<input type="email" name="email" required autocomplete="email"></label>
     <label>Message<textarea name="message" rows="6" required></textarea></label>
     <button class="btn" type="submit">Send</button>
   </form>

@@ -78,17 +78,17 @@
       </label>
 
       <!-- Required identity info -->
-      <label>First Name * <input type="text" name="first_name" required></label>
-      <label>Last Name * <input type="text" name="last_name" required></label>
-      <label>Email * <input type="email" name="email" required></label>
+      <label>First Name * <input type="text" name="first_name" required autocomplete="given-name"></label>
+      <label>Last Name * <input type="text" name="last_name" required autocomplete="family-name"></label>
+      <label>Email * <input type="email" name="email" required autocomplete="email"></label>
 
       <!-- Address: always collected to simplify reporting for >$10 donations -->
       <fieldset>
         <legend>Billing Address *</legend>
-        <label>Street Address * <input name="addr1" required></label>
-        <label>City * <input name="city" required></label>
-        <label>State * <input name="state" required maxlength="2"></label>
-        <label>ZIP * <input name="zip" required pattern="[0-9]{5}"></label>
+        <label>Street Address * <input name="addr1" required autocomplete="address-line1"></label>
+        <label>City * <input name="city" required autocomplete="address-level2"></label>
+        <label>State * <input name="state" required maxlength="2" autocomplete="address-level1"></label>
+        <label>ZIP * <input name="zip" required pattern="[0-9]{5}" autocomplete="postal-code"></label>
       </fieldset>
 
       <!-- Employer/Occupation: required when amount > $50; toggled via JS. -->
