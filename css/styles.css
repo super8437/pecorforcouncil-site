@@ -92,6 +92,16 @@ h1 { font-size: var(--fs-xxl); }
 h2 { font-size: var(--fs-xl); }
 h3 { font-size: var(--fs-lg); }
 
+.kicker {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  margin: 0 0 var(--space-2);
+  line-height: 1;
+  color: var(--color-muted);
+}
+
 /* =========================
    Containers & Sections
    ========================= */
@@ -530,8 +540,9 @@ nav a { margin-left: var(--space-4); font-weight: 600; }
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   gap: clamp(var(--space-6), 4vw, var(--space-10));
-  align-items: center;
+  align-items: flex-start;
 }
+.about__content h1 { margin-top: 0; }
 .about__content h2 { margin-top: 0; }
 .about__lede {
   font-size: clamp(1.05rem, 2vw, 1.25rem);
@@ -539,8 +550,8 @@ nav a { margin-left: var(--space-4); font-weight: 600; }
   margin: var(--space-3) 0 var(--space-6);
   max-width: 65ch;
 }
-.about__actions { display: flex; gap: var(--space-3); flex-wrap: wrap; }
-.about__media { max-width: 520px; justify-self: center; }
+.about__actions { display: flex; gap: var(--space-3); flex-wrap: wrap; margin-top: var(--space-6); }
+.about__media { max-width: 520px; justify-self: center; margin-top: calc(var(--fs-xs) + var(--space-2)); }
 .media-frame {
   border-radius: var(--radius-xl);
   overflow: hidden;
@@ -555,7 +566,7 @@ nav a { margin-left: var(--space-4); font-weight: 600; }
 
 @media (max-width: 900px) {
   .about { grid-template-columns: 1fr; }
-  .about__media { order: -1; }
+  .about__media { order: -1; margin-top: 0; }
 }
 
 /* Chips */
