@@ -19,6 +19,9 @@ if (outDir !== root) {
 const header = fs.readFileSync(path.join(root, 'partials', 'header.html'), 'utf8');
 const footer = fs.readFileSync(path.join(root, 'partials', 'footer.html'), 'utf8');
 
+const headerIncludeRE = /<!--#\s*include\s+virtual=['"]\/partials\/header\.html['"]\s*-->/gi;
+const footerIncludeRE = /<!--#\s*include\s+virtual=['"]\/partials\/footer[^'"]*\.html['"]\s*-->/gi;
+
 const htmlFiles = fs
   .readdirSync(outDir)
   .filter((file) => file.endsWith('.html') && !file.startsWith('partial'));
@@ -26,9 +29,7 @@ const htmlFiles = fs
 htmlFiles.forEach((file) => {
   const filePath = path.join(outDir, file);
   let content = fs.readFileSync(filePath, 'utf8');
-  content = content
-    .replace('<!--#include virtual="/partials/header.html" -->', header)
-    .replace('<!--#include virtual="/partials/footer.html" -->', footer);
+  content = content.replace(headerIncludeRE, header).replace(footerIncludeRE, footer);
   fs.writeFileSync(filePath, content);
 });
 

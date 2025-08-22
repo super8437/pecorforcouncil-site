@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "build": "node scripts/update-css-version.js"
+    "inline": "node scripts/inline-partials.js dist",
+    "build": "npm run inline && node scripts/update-css-version.js dist"
   },
   "keywords": [],
   "author": "",
