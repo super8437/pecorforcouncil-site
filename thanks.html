@@ -18,13 +18,49 @@
   <link rel="stylesheet" href="/css/styles.css?v=1755787398618" />
 </head>
 <body>
-  <!--#include virtual="/partials/header.html" -->
+  <a class="skip-link" href="#main">Skip to content</a>
+<header class="header" role="banner">
+  <div class="container header__bar">
+    <a class="brand" href="/" aria-label="Home">
+      <!-- Use the campaign favicon as the brand mark instead of the placeholder SP badge -->
+      <img src="/favicons/favicon-32x32.png" alt="Campaign logo" class="brand__logo">
+      <span class="brand__text">Sam Pecor</span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
+      <span class="sr-only">Menu</span>
+      <span aria-hidden="true">☰</span>
+    </button>
+    <nav id="primary-nav" class="nav" aria-label="Primary" aria-hidden="true">
+      <ul class="nav__list">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/priorities.html">Priorities</a></li>
+        <li><a href="/porch.html">Open Porch</a></li>
+        <li><a href="/support.html">Support</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+        <li class="nav__cta">
+          <a href="/donate.html" class="btn btn--donate">Donate</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
   <main id="main" class="container">
     <h1>Thanks for reaching out!</h1>
     <p>We’ve received your submission. I’ll follow up soon. In the meantime,
        you can call or text 207-205-2680 or email <a href="mailto:info@pecorforcouncil.com">info@pecorforcouncil.com</a>.</p>
     <p><a class="btn" href="/">Back to Home</a></p>
   </main>
-  <!--#include virtual="/partials/footer.html" -->
+  <footer class="footer">
+  <div class="container">
+    <!-- Required campaign disclaimer -->
+    <p class="small footer-disclaimer">Paid for and authorized by Sam Pecor.</p>
+    <div class="small">© 2025 Pecor for Council. Accessibility: need accommodations? Email <a href="mailto:info@pecorforcouncil.com">info@pecorforcouncil.com</a> or call <a href="tel:2072052680">207-205-2680</a>.</div>
+  </div>
+</footer>
+<!-- Navigation and header JS -->
+<script src="/js/nav.js" defer></script>
+
 </body>
 </html>
