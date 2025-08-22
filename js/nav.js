@@ -64,6 +64,7 @@
 
   const onScroll = () => {
     const y = window.scrollY || window.pageYOffset || 0;
+    if (nav.classList.contains('is-open')) close();
     if (!ticking) {
       ticking = true;
       requestAnimationFrame(() => { applyScrollState(y); ticking = false; });
