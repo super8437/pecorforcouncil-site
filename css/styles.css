@@ -528,6 +528,22 @@ nav a { margin-left: var(--space-4); font-weight: 600; }
 }
 
 /* =========================
+   Priorities accordion
+   ========================= */
+.prio-accordion summary {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  list-style: none;
+  margin: var(--space-6) 0 var(--space-3);
+  font-size: var(--fs-xl);
+  font-weight: 700;
+  line-height: 1.2;
+}
+.prio-accordion summary::-webkit-details-marker { display: none; }
+.prio-accordion summary .summary-text { display: inline; }
+
+/* =========================
    Home: Priorities intro
    ========================= */
 .section-title { margin: 0 0 var(--space-2); }
