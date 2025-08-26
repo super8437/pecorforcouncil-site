@@ -15,10 +15,9 @@
     }
 
     // Compute target offset to account for sticky header and scroll
-    const headerH =
-      parseFloat(
-        getComputedStyle(document.documentElement).getPropertyValue('--header-h')
-      ) || 80;
+    const headerH = parseFloat(
+      getComputedStyle(document.documentElement).getPropertyValue('--header-h')
+    ) || 80;
     const y = el.getBoundingClientRect().top + window.scrollY - headerH;
     window.scrollTo({ top: y, behavior: 'smooth' });
   };
