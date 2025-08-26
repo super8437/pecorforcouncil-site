@@ -1,5 +1,6 @@
 (() => {
   const allowed = /^[a-z0-9\-_]+$/i;
+  // Helper to read the sticky header height from the CSS variable
   const headerHeight = () =>
     parseFloat(
       getComputedStyle(document.documentElement).getPropertyValue('--header-h')
