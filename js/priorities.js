@@ -8,12 +8,19 @@
     if (!allowed.test(hash)) return;
 
     const el = document.querySelector(`#${hash}`);
-    if (el && el.nodeName.toLowerCase() === 'details') {
+    if (!el) return;
+
+    if (el.nodeName.toLowerCase() === 'details') {
       el.open = true;
     }
-    // Adjust scroll to account for sticky header using computed height
-    const headerH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 80;
-    requestAnimationFrame(() => window.scrollBy(0, -headerH));
+
+    // Compute target offset to account for sticky header and scroll
+    const headerH =
+      parseFloat(
+        getComputedStyle(document.documentElement).getPropertyValue('--header-h')
+      ) || 80;
+    const y = el.getBoundingClientRect().top + window.scrollY - headerH;
+    window.scrollTo({ top: y, behavior: 'smooth' });
   };
   window.addEventListener('hashchange', hashOpen);
   // Run on initial page load in case a hash is present

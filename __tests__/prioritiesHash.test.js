@@ -9,11 +9,12 @@ describe('priorities hash handling', () => {
     global.window = window;
     global.document = window.document;
     global.location = window.location;
-    window.requestAnimationFrame = (fn) => fn();
-    window.scrollBy = jest.fn();
-    global.requestAnimationFrame = window.requestAnimationFrame;
+    window.scrollTo = jest.fn();
     global.getComputedStyle = () => ({ getPropertyValue: () => '0' });
-    document.querySelector = jest.fn(() => ({ nodeName: 'details' }));
+    document.querySelector = jest.fn(() => ({
+      nodeName: 'details',
+      getBoundingClientRect: () => ({ top: 0 }),
+    }));
 
     jest.isolateModules(() => {
       require('../js/priorities');
@@ -30,7 +31,6 @@ describe('priorities hash handling', () => {
     delete global.document;
     delete global.location;
     delete global.getComputedStyle;
-    delete global.requestAnimationFrame;
   });
 
   test('ignores malicious hashes', () => {
