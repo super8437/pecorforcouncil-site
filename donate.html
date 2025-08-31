@@ -37,67 +37,17 @@
       Contributions are not tax‑deductible. Maine law requires us to collect your name and address for contributions over $10 and your employer and occupation for contributors giving more than $50 in a reporting period. Maximum contribution is $600 per person per election.
     </p>
 
-    <!-- Donation intake form handled by a Netlify Function -->
-    <form name="donations" method="POST" action="/.netlify/functions/donate"
-          class="form" id="donation-form" data-progressive-security>
-      <input type="hidden" name="form-name" value="donations">
-      <p class="hp" aria-hidden="true" tabindex="-1"><label>Don’t fill this out: <input name="bot-field"></label></p>
+    <!-- Donation form embedded via Donorbox -->
+    <script src="https://donorbox.org/widget.js" paypalExpress="false"></script>
+    <iframe src="https://donorbox.org/embed/pecor-for-council?" name="donorbox" allowpaymentrequest="allowpaymentrequest" seamless="seamless" frameborder="0" scrolling="no" height="900px" width="100%" style="max-width: 500px; min-width: 250px; max-height:none!important" allow="payment"></iframe>
 
-      <!-- Amount input: enforce minimum 1 and maximum 600 -->
-      <label>Amount (USD) *
-        <input type="number" name="amount" id="amount" min="1" max="600" step="1" required inputmode="numeric">
-      </label>
-
-      <!-- Required identity info -->
-      <label>First Name * <input type="text" name="first_name" required></label>
-      <label>Last Name * <input type="text" name="last_name" required></label>
-      <label>Email * <input type="email" name="email" required></label>
-
-      <!-- Address: always collected to simplify reporting for >$10 donations -->
-      <fieldset>
-        <legend>Billing Address *</legend>
-        <label>Street Address * <input name="addr1" required></label>
-        <label>City * <input name="city" required></label>
-        <label>State * <input name="state" required maxlength="2" pattern="[A-Za-z]{2}" title="Two-letter state code"></label>
-        <label>ZIP * <input name="zip" required pattern="\d{5}(-\d{4})?"></label>
-      </fieldset>
-
-      <!-- Employer/Occupation: required when amount > $50; toggled via JS. -->
-      <div id="emp-occ-group">
-        <label>Employer <input name="employer" id="employer"></label>
-        <label>Occupation <input name="occupation" id="occupation"></label>
-        <p class="small">Required if your total contributions exceed $50 in the reporting period.</p>
-      </div>
-
-      <!-- Legal affirmations -->
-      <fieldset>
-        <legend>Legal affirmations *</legend>
-        <label><input type="checkbox" name="affirm_citizen" required> I am a U.S. citizen or lawful permanent resident.</label>
-        <label><input type="checkbox" name="affirm_ownfunds" required> This contribution is made from my own funds, in my own name.</label>
-      </fieldset>
-
-      <p class="small">
-        Maximum contribution is $600 per person per election. We cannot accept contributions from foreign nationals.
-      </p>
-
-      <div class="captcha-container" style="display:none">
-        <div class="h-captcha" data-sitekey="10000000-ffff-ffff-ffff-000000000001"></div>
-      </div>
-      <button class="btn" type="submit">Continue</button>
-
-      <!-- Disclosure and authorization statements below the CTA -->
-      <p class="small mt-2">
-        By donating, you confirm the above and understand that your contribution will be publicly reported as required by law.
-      </p>
-      <p class="small footer-disclaimer">Paid for and authorized by Sam Pecor.</p>
-    </form>
+    <p class="small mt-2">
+      By donating, you confirm the above and understand that your contribution will be publicly reported as required by law.
+    </p>
+    <p class="small footer-disclaimer">Paid for and authorized by Sam Pecor.</p>
 
     <p class="small mt-4">Questions? <a href="/privacy.html">Privacy Policy</a></p>
     </main>
     <!--#include virtual="/partials/footer.html" -->
-    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
-    <script src="/js/donationHelper.js" defer></script>
-    <script src="/js/main.js" defer></script>
-    <script src="/js/captcha.js" defer></script>
   </body>
   </html>
